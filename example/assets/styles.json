@@ -1,0 +1,548 @@
+{
+  "color": {
+    "light": {
+      "background": {
+        "description": "",
+        "type": "color",
+        "value": "#27272eff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:ee097ee8f20294a8f3bbed473f5798f1f1ba2510,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black90": {
+        "description": "",
+        "type": "color",
+        "value": "#3d3d43ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:3b9329e7552af908db39039510010638f1e03e72,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black80": {
+        "description": "",
+        "type": "color",
+        "value": "#525258ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:1ab33d1a779fad10cd119b7a5ecef8e1e78fa4ae,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black70": {
+        "description": "",
+        "type": "color",
+        "value": "#68686dff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:efcbb892c948dc24ad8d17d95fcf3bec1eae550a,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black50": {
+        "description": "",
+        "type": "color",
+        "value": "#939396ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:d8284c8ccfd00ed6720f1d3c518e565cd7168ad7,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orange": {
+        "description": "",
+        "type": "color",
+        "value": "#ff6500ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:ed91a9de475b35a89ca50f599a01b27ac2ecdf34,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orange30": {
+        "description": "",
+        "type": "color",
+        "value": "#ffd1b3ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e3de5e0f02ad118ad0fcde098490a579520f18cd,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "typo": {
+        "description": "",
+        "type": "color",
+        "value": "#ffffffff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:425755817664c49331230064f8c7a1c4e2d8346d,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "error80": {
+        "description": "",
+        "type": "color",
+        "value": "#4f2c34ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:a83454afeb120d4a13a3db5f975685bf745c8a7e,",
+            "exportKey": "color"
+          }
+        }
+      }
+    },
+    "dark": {
+      "background": {
+        "description": "",
+        "type": "color",
+        "value": "#27272eff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:ee097ee8f20294a8f3bbed473f5798f1f1ba2510,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black90": {
+        "description": "",
+        "type": "color",
+        "value": "#3d3d43ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:3b9329e7552af908db39039510010638f1e03e72,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black80": {
+        "description": "",
+        "type": "color",
+        "value": "#525258ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:1ab33d1a779fad10cd119b7a5ecef8e1e78fa4ae,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black70": {
+        "description": "",
+        "type": "color",
+        "value": "#68686dff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:efcbb892c948dc24ad8d17d95fcf3bec1eae550a,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "black50": {
+        "description": "",
+        "type": "color",
+        "value": "#939396ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:d8284c8ccfd00ed6720f1d3c518e565cd7168ad7,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orange": {
+        "description": "",
+        "type": "color",
+        "value": "#ff6500ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:ed91a9de475b35a89ca50f599a01b27ac2ecdf34,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "orange30": {
+        "description": "",
+        "type": "color",
+        "value": "#ffd1b3ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e3de5e0f02ad118ad0fcde098490a579520f18cd,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "typo": {
+        "description": "",
+        "type": "color",
+        "value": "#ffffffff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:425755817664c49331230064f8c7a1c4e2d8346d,",
+            "exportKey": "color"
+          }
+        }
+      },
+      "error80": {
+        "description": "",
+        "type": "color",
+        "value": "#4f2c34ff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:a83454afeb120d4a13a3db5f975685bf745c8a7e,",
+            "exportKey": "color"
+          }
+        }
+      }
+    },
+    "error": {
+      "alert20": {
+        "description": "",
+        "type": "color",
+        "value": "#fcd9dbff",
+        "blendMode": "normal",
+        "extensions": {
+          "org.lukasoppermann.figmaDesignTokens": {
+            "styleId": "S:e25def001061a8561fe002bf9b6f4b3323227479,",
+            "exportKey": "color"
+          }
+        }
+      }
+    }
+  },
+  "font": {
+    "h1": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 44,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 56,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:4ce660f59d02f4ddfca47f0fc35a294fe03ee874,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "h2": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 36,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 56,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:c877bac53424fe67ccb77ecf6298b5f393ba7b20,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "h3": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 24,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 32,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:6c37c5f6f0ef183a98c403bb3e6cacf60342a651,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "h4": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 24,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 600,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 32,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:f63485192e4c4f79774cc0c5939277d93a3b2508,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "h5": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 20,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 32,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:7f7bf67adf051954dbcc2141d353251360c76129,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "h6": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 20,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 600,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 32,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:0c7f070d69ad2c40e93fb7a0ba21e156a4102b17,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "b1": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 18,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 32,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ea7d2e28c3c32f3b81e42484d1206bb8cbf6a8e5,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "b2": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 16,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 32,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ae1e1bef813ca68b78b0d8e7cdf02b347542f061,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "b3": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:fac0c96edfa45f36a8e95deec87ff368ac97f1e5,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "b4": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 16,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:5d1cbc168510e14a6f42ffb43af685cbc1e59644,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "info": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 16,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:071087f8591a64e858d7250b086e4614d4661aee,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "b5": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 14,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 600,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 24,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:8f83f1173b2a89c3ef7d2aa45c511c37c754618a,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "info 2": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 600,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 16,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:bbbf03cc901561ff14761046b65b1742abfc6bff,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "info 3": {
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 12,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 16,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:d90ef0bc59d14d2dc55188d7b1c6ed12f8aab97a,",
+          "exportKey": "font"
+        }
+      }
+    }
+  }
+}
