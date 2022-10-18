@@ -3,19 +3,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_svg/svg.dart';
 
 // Example
 //
 // Scaffold(
 //   floatingActionButton: DesignSystemFloatingButton(
-//     darkColors: const DarkAppColors().allColors,
-//     lightColors: const LightAppColors().allColors,
-//     typography: AppTypography.allStyles,
-//   ),
+//      darkColors: DarkAppColors().allColors,
+//      lightColors: LightAppColors().allColors,
+//      typography: AppTypography.allStyles,
+//      dimens: AppDimens.allDimens,
+//      shadows: AppShadows.allShadows,
+//    ),
 //   body: Center(
-//     child: Text("Theme Tailor"),
+//     child: Text("Figma Generator"),
 //   ),
 // ),
+
+const _iteo =
+    '<svg width="81" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)" fill-rule="evenodd" clip-rule="evenodd" fill="#FF6500"><path d="M43.84 17.553c.347.343.842.516 1.493.516h1.612v3.108H44.43c-1.437 0-2.574-.413-3.404-1.235-.834-.819-1.253-1.948-1.253-3.38v-6.205h-2.366V7.552h2.37V4.18H43.318v3.372h3.555v2.805h-3.555V16.093c0 .634.175 1.118.522 1.46Zm-9.889-10.02H30.42V4.18h3.531v3.352ZM30.42 21.177l-.006-12.222h3.543l.006 12.222H30.42Zm23.811-10.516c-.573.446-.967 1.078-1.18 1.887h6.661c-.255-.826-.678-1.462-1.26-1.9-.586-.441-1.294-.664-2.131-.664-.821 0-1.516.227-2.09.677Zm8.316-.26c.587 1.078.884 2.267.884 3.567a7.6 7.6 0 0 1-.076 1.078H52.95c.16.925.532 1.635 1.126 2.126.59.496 1.34.743 2.245.743.636 0 1.21-.14 1.72-.417a2.916 2.916 0 0 0 1.11-1.032h3.94c-.502 1.424-1.352 2.56-2.546 3.406-1.227.867-2.633 1.305-4.224 1.305-1.336 0-2.546-.314-3.639-.937a6.829 6.829 0 0 1-2.567-2.58c-.62-1.099-.93-2.309-.93-3.642 0-1.342.306-2.556.926-3.654a6.672 6.672 0 0 1 2.558-2.572c1.093-.62 2.308-.934 3.652-.934 1.373 0 2.608.323 3.701.962a6.657 6.657 0 0 1 2.525 2.581Zm13.49 6.296c-.687.69-1.566 1.033-2.634 1.033-1.072 0-1.95-.343-2.638-1.033-.686-.693-1.03-1.585-1.03-2.68 0-1.094.344-1.985 1.03-2.679.687-.69 1.567-1.036 2.638-1.036 1.068 0 1.947.346 2.634 1.036.687.694 1.03 1.585 1.03 2.68 0 1.094-.343 1.986-1.03 2.68Zm3.827-6.346a6.837 6.837 0 0 0-2.671-2.568c-1.135-.615-2.4-.925-3.79-.925-1.402 0-2.671.31-3.806.925a6.847 6.847 0 0 0-2.667 2.564c-.64 1.09-.963 2.312-.963 3.67 0 1.343.322 2.556.963 3.655a6.838 6.838 0 0 0 2.667 2.572c1.135.619 2.404.933 3.806.933 1.39 0 2.655-.314 3.79-.933a6.847 6.847 0 0 0 2.671-2.572c.65-1.099.972-2.313.972-3.654 0-1.35-.323-2.569-.972-3.667ZM3.727 11.291c-.092.46-.136.929-.136 1.409 0 4.135 3.428 7.499 7.637 7.499 4.214 0 7.641-3.376 7.641-7.523 0-1.4-.39-2.75-1.12-3.922a11.298 11.298 0 0 1-5.822 2.03c-.252.023-.483.023-.699.023-2.956 0-5.77-1.196-7.924-3.367L2.079 6.204l1.22-1.24c2.136-2.16 4.953-3.347 7.93-3.347.143 0 .287 0 .43.012a11.213 11.213 0 0 1 7.637 3.352c2.04 2.077 3.165 4.808 3.165 7.695 0 6.103-5.04 11.064-11.233 11.064C5.036 23.74 0 18.787 0 12.7c0-1.456.295-2.904.858-4.237l2.869 2.829Zm3.705-5.088a7.199 7.199 0 0 0 4.183 1.053l.074-.006a7.669 7.669 0 0 0 3.446-1.04A7.662 7.662 0 0 0 11.5 5.165l-.086-.005c-.062-.005-.124-.003-.187-.003-1.365 0-2.65.358-3.795 1.047ZM21.718.394l-2.404 2.37 2.497 2.462 2.405-2.37L21.718.394Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h81v24H0z"/></clipPath></defs></svg>';
 
 const _loremIpsum =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id pellentesque neque. Cras in mauris a nisl mattis sagittis. Nullam tincidunt lorem dui, eget gravida felis mollis non. Proin ac quam at risus eleifend feugiat id in diam. Quisque gravida dui lorem, eget dapibus ligula ullamcorper eget. Donec vel nisi metus. Morbi tempus fringilla mi, ut consectetur nulla convallis et. Quisque eu blandit mauris, et mollis tortor. Sed hendrerit tincidunt massa vel imperdiet. Aliquam erat volutpat.';
@@ -23,6 +29,7 @@ const _loremIpsum =
 const _pagesName = [
   "Colors",
   "Font styles",
+  "Shadows",
   "Dimenss",
   "Assets",
 ];
@@ -33,6 +40,7 @@ class DesignSystemFloatingButton extends StatelessWidget {
     this.dimens,
     this.lightColors,
     this.darkColors,
+    this.shadows,
     Key? key,
   }) : super(key: key);
 
@@ -40,6 +48,7 @@ class DesignSystemFloatingButton extends StatelessWidget {
   final Map<String, double>? dimens;
   final Map<String, Map<String, Color>>? lightColors;
   final Map<String, Map<String, Color>>? darkColors;
+  final Map<String, BoxShadow>? shadows;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +61,7 @@ class DesignSystemFloatingButton extends StatelessWidget {
             lightColors: lightColors,
             typography: typography,
             dimens: dimens,
+            shadows: shadows,
           ),
         ),
       ),
@@ -66,6 +76,7 @@ class _DesignSystemPage extends HookWidget {
     this.lightColors,
     this.darkColors,
     this.dimens,
+    this.shadows,
     Key? key,
   }) : super(key: key);
 
@@ -73,6 +84,7 @@ class _DesignSystemPage extends HookWidget {
   final Map<String, double>? dimens;
   final Map<String, Map<String, Color>>? lightColors;
   final Map<String, Map<String, Color>>? darkColors;
+  final Map<String, BoxShadow>? shadows;
 
   @override
   Widget build(BuildContext context) {
@@ -126,16 +138,22 @@ class _DesignSystemPage extends HookWidget {
                 onTap: () => pageController.jumpToPage(1),
               ),
               _DrawerItem(
-                icon: Icons.space_dashboard,
-                title: "Dimens",
+                icon: Icons.contrast,
+                title: "Shadows",
                 isActive: currentPage.value == 2,
                 onTap: () => pageController.jumpToPage(2),
               ),
               _DrawerItem(
-                icon: Icons.folder,
-                title: "Assets",
+                icon: Icons.space_dashboard,
+                title: "Dimens",
                 isActive: currentPage.value == 3,
                 onTap: () => pageController.jumpToPage(3),
+              ),
+              _DrawerItem(
+                icon: Icons.folder,
+                title: "Assets",
+                isActive: currentPage.value == 4,
+                onTap: () => pageController.jumpToPage(4),
               ),
             ],
           ),
@@ -146,6 +164,7 @@ class _DesignSystemPage extends HookWidget {
           children: [
             _Colors(darkMode.value ? darkColors : lightColors),
             _Typography(typography),
+            _Shadows(shadows),
             _Dimens(dimens),
             const _Assets(),
           ],
@@ -166,11 +185,9 @@ class _DrawerHeader extends StatelessWidget {
       ),
       padding: EdgeInsets.zero,
       child: Center(
-        child: Text(
-          "Design System",
-          style: Theme.of(context).textTheme.headline5?.copyWith(
-                color: Colors.white,
-              ),
+        child: SvgPicture.string(
+          _iteo,
+          color: Colors.white,
         ),
       ),
     );
@@ -409,9 +426,10 @@ class _ColorTile extends StatelessWidget {
       onPressed: () {
         showDialog(
           context: context,
-          builder: (context) => _ColorDialog(
+          builder: (_) => _ColorDialog(
             color: color,
             name: name,
+            ctx: context,
           ),
         );
       },
@@ -473,6 +491,33 @@ class _ColorTile extends StatelessWidget {
   }
 }
 
+class _Shadows extends HookWidget {
+  const _Shadows(this.shadows, {Key? key}) : super(key: key);
+
+  final Map<String, BoxShadow>? shadows;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        ...shadows
+                ?.map((key, value) {
+                  return MapEntry(
+                    key,
+                    _ShadowTile(
+                      name: key,
+                      shadow: value,
+                    ),
+                  );
+                })
+                .values
+                .toList() ??
+            [],
+      ],
+    );
+  }
+}
+
 class _Dimens extends HookWidget {
   const _Dimens(this.dimens, {Key? key}) : super(key: key);
 
@@ -522,6 +567,47 @@ class _Typography extends HookWidget {
                 .values
                 .toList() ??
             [],
+      ],
+    );
+  }
+}
+
+class _ShadowTile extends StatelessWidget {
+  const _ShadowTile({
+    required this.name,
+    required this.shadow,
+    Key? key,
+  }) : super(key: key);
+
+  final String name;
+  final BoxShadow shadow;
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      collapsedIconColor: Theme.of(context).primaryColor,
+      iconColor: Theme.of(context).primaryColor,
+      childrenPadding: const EdgeInsets.symmetric(
+        horizontal: 24,
+        vertical: 24,
+      ),
+      title: Text(
+        name,
+        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+      ),
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width * 0.50,
+          height: MediaQuery.of(context).size.width * 0.30,
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            boxShadow: [
+              shadow,
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -635,62 +721,81 @@ class _ColorDialog extends StatelessWidget {
   const _ColorDialog({
     required this.color,
     required this.name,
+    required this.ctx,
     Key? key,
   }) : super(key: key);
 
   final Color color;
   final String name;
+  final BuildContext ctx;
 
   @override
   Widget build(BuildContext context) {
     return FittedBox(
       fit: BoxFit.scaleDown,
-      child: Container(
-        margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(8),
+      child: GestureDetector(
+        onTap: () {
+          Clipboard.setData(
+            ClipboardData(
+              text: color.toString().replaceAll("Color(0x", "#").replaceAll(")", "").toUpperCase(),
+            ),
+          );
+
+          ScaffoldMessenger.of(ctx).clearMaterialBanners();
+
+          ScaffoldMessenger.of(ctx).showMaterialBanner(
+            MaterialBanner(
+              actions: [
+                IconButton(
+                  onPressed: () => ScaffoldMessenger.of(ctx).clearMaterialBanners(),
+                  icon: const Icon(
+                    Icons.close,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+              content: Text(
+                "Color $name hex was coppied!",
+                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                      color: Colors.white,
+                    ),
+              ),
+              backgroundColor: Theme.of(context).primaryColor,
+            ),
+          );
+        },
+        child: Container(
+          margin: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(8),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
-            Text(name),
-            const SizedBox(height: 8),
-            Text(
-              "Opacity: ${color.opacity.toStringAsFixed(2).toUpperCase()}",
-            ),
-            const SizedBox(height: 8),
-            GestureDetector(
-              onTap: () {
-                Clipboard.setData(
-                  ClipboardData(
-                    text: color.toString().replaceAll("Color(0x", "#").replaceAll(")", "").toUpperCase(),
-                  ),
-                );
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Color hex was coppied to clipboard!"),
-                  ),
-                );
-              },
-              child: Text(
+              const SizedBox(height: 16),
+              Text(name),
+              const SizedBox(height: 8),
+              Text(
+                "Opacity: ${color.opacity.toStringAsFixed(2).toUpperCase()}",
+              ),
+              const SizedBox(height: 8),
+              Text(
                 color.toString().replaceAll("Color(0x", "#").replaceAll(")", "").toUpperCase(),
               ),
-            ),
-            const SizedBox(height: 16),
-          ],
+              const SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
     );
