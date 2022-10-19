@@ -14,7 +14,7 @@
             }
           }
         },
-        "primary button clicked (100)": {
+        "primaryButtonClicked100": {
           "description": "",
           "type": "color",
           "value": "#f6b409ff",
@@ -26,7 +26,7 @@
             }
           }
         },
-        "primary button clicked (10)": {
+        "primaryButtonClicked10": {
           "description": "",
           "type": "color",
           "value": "#f6b4091a",
@@ -38,7 +38,7 @@
             }
           }
         },
-        "error (100)": {
+        "error100": {
           "description": "",
           "type": "color",
           "value": "#ef404aff",
@@ -50,7 +50,7 @@
             }
           }
         },
-        "error (10)": {
+        "error10": {
           "description": "",
           "type": "color",
           "value": "#ef404a1a",
@@ -100,7 +100,7 @@
             }
           }
         },
-        "button typo": {
+        "buttonTypo": {
           "description": "",
           "type": "color",
           "value": "#404041ff",
@@ -136,7 +136,7 @@
             }
           }
         },
-        "border 50": {
+        "border50": {
           "description": "",
           "type": "color",
           "value": "#dadada80",
@@ -160,7 +160,7 @@
             }
           }
         },
-        "background 50": {
+        "background50": {
           "description": "",
           "type": "color",
           "value": "#f2f2f280",
@@ -186,7 +186,7 @@
         }
       },
       "additional": {
-        "additional 1 (100)": {
+        "additional1100": {
           "description": "",
           "type": "color",
           "value": "#98c93cff",
@@ -198,7 +198,7 @@
             }
           }
         },
-        "additional 1 (10)": {
+        "additional110": {
           "description": "",
           "type": "color",
           "value": "#98c93c1a",
@@ -210,7 +210,7 @@
             }
           }
         },
-        "additional 2 (100)": {
+        "additional2100": {
           "description": "",
           "type": "color",
           "value": "#ec0677ff",
@@ -222,7 +222,7 @@
             }
           }
         },
-        "additional 3 (100)": {
+        "additional3100": {
           "description": "",
           "type": "color",
           "value": "#70ae09ff",
@@ -234,7 +234,7 @@
             }
           }
         },
-        "additional 4 (100)": {
+        "additional4100": {
           "description": "",
           "type": "color",
           "value": "#f0771fff",
@@ -246,7 +246,7 @@
             }
           }
         },
-        "additional 4 (10)": {
+        "additional410": {
           "description": "",
           "type": "color",
           "value": "#f0771f1a",
@@ -258,7 +258,7 @@
             }
           }
         },
-        "additional 5 (100)": {
+        "additional5100": {
           "description": "",
           "type": "color",
           "value": "#55b8d8ff",
@@ -270,7 +270,7 @@
             }
           }
         },
-        "additional 5 (10)": {
+        "additional510": {
           "description": "",
           "type": "color",
           "value": "#55b8d81a",
@@ -282,7 +282,7 @@
             }
           }
         },
-        "additional 6 (100)": {
+        "additional6100": {
           "description": "",
           "type": "color",
           "value": "#25b422ff",
@@ -294,7 +294,7 @@
             }
           }
         },
-        "additional 6 (10)": {
+        "additional610": {
           "description": "",
           "type": "color",
           "value": "#25b4221a",
@@ -306,7 +306,7 @@
             }
           }
         },
-        "additional 7 (100)": {
+        "additional7100": {
           "description": "",
           "type": "color",
           "value": "#5591d8ff",
@@ -318,7 +318,7 @@
             }
           }
         },
-        "additional 7 (10)": {
+        "additional710": {
           "description": "",
           "type": "color",
           "value": "#5591d81a",
@@ -330,7 +330,7 @@
             }
           }
         },
-        "additional 8 (100)": {
+        "additional8100": {
           "description": "",
           "type": "color",
           "value": "#ae55d8ff",
@@ -342,7 +342,7 @@
             }
           }
         },
-        "additional 8 (10)": {
+        "additional810": {
           "description": "",
           "type": "color",
           "value": "#ae55d81a",
@@ -354,7 +354,7 @@
             }
           }
         },
-        "additional 9 (100)": {
+        "additional9100": {
           "description": "",
           "type": "color",
           "value": "#22b490ff",
@@ -366,7 +366,7 @@
             }
           }
         },
-        "additional 9 (10)": {
+        "additional910": {
           "description": "",
           "type": "color",
           "value": "#22b4901a",
@@ -381,7 +381,7 @@
       },
       "merchands": {
         "carrefour": {
-          "carrefour-100": {
+          "carrefour100": {
             "description": "",
             "type": "color",
             "value": "#314fb9ff",
@@ -393,7 +393,7 @@
               }
             }
           },
-          "carrefour-30": {
+          "carrefour30": {
             "description": "",
             "type": "color",
             "value": "#8497d8ff",
@@ -407,7 +407,7 @@
           }
         },
         "makro": {
-          "makro-100": {
+          "makro100": {
             "description": "",
             "type": "color",
             "value": "#072386ff",
@@ -419,7 +419,7 @@
               }
             }
           },
-          "makro-30": {
+          "makro30": {
             "description": "",
             "type": "color",
             "value": "#b8c1dfff",
@@ -431,7 +431,7 @@
               }
             }
           },
-          "makro additional": {
+          "makroAdditional": {
             "description": "",
             "type": "color",
             "value": "#173c7bff",
@@ -460,7 +460,7 @@
             }
           }
         },
-        "primary button clicked (100)": {
+        "primaryButtonClicked100": {
           "description": "",
           "type": "color",
           "value": "#f6b4091a",
@@ -472,7 +472,7 @@
             }
           }
         },
-        "error (100)": {
+        "error100": {
           "description": "",
           "type": "color",
           "value": "#ef404aff",
@@ -484,7 +484,7 @@
             }
           }
         },
-        "error (10)": {
+        "error10": {
           "description": "",
           "type": "color",
           "value": "#ef404a1a",
@@ -510,7 +510,7 @@
         }
       },
       "additional": {
-        "additional 1 (100)": {
+        "additional1100": {
           "description": "",
           "type": "color",
           "value": "#98c93cff",
@@ -522,7 +522,7 @@
             }
           }
         },
-        "additional 1 (10)": {
+        "additional110": {
           "description": "",
           "type": "color",
           "value": "#98c93c1a",
@@ -534,7 +534,7 @@
             }
           }
         },
-        "additional 2 (100)": {
+        "additional2100": {
           "description": "",
           "type": "color",
           "value": "#ec0677ff",
@@ -546,7 +546,7 @@
             }
           }
         },
-        "additional 3 (100)": {
+        "additional3100": {
           "description": "",
           "type": "color",
           "value": "#70ae09ff",
@@ -558,7 +558,7 @@
             }
           }
         },
-        "additional 4 (100)": {
+        "additional4100": {
           "description": "",
           "type": "color",
           "value": "#f0771fff",
@@ -570,7 +570,7 @@
             }
           }
         },
-        "additional 4 (10)": {
+        "additional410": {
           "description": "",
           "type": "color",
           "value": "#f0771f1a",
@@ -582,7 +582,7 @@
             }
           }
         },
-        "additional 5 (100)": {
+        "additional5100": {
           "description": "",
           "type": "color",
           "value": "#55b8d8ff",
@@ -594,7 +594,7 @@
             }
           }
         },
-        "additional 5 (10)": {
+        "additional510": {
           "description": "",
           "type": "color",
           "value": "#55b8d81a",
@@ -606,7 +606,7 @@
             }
           }
         },
-        "additional 6 (100)": {
+        "additional6100": {
           "description": "",
           "type": "color",
           "value": "#25b422ff",
@@ -618,7 +618,7 @@
             }
           }
         },
-        "additional 6 (10)": {
+        "additional610": {
           "description": "",
           "type": "color",
           "value": "#25b4221a",
@@ -630,7 +630,7 @@
             }
           }
         },
-        "additional 7 (100)": {
+        "additional7100": {
           "description": "",
           "type": "color",
           "value": "#5591d8ff",
@@ -642,7 +642,7 @@
             }
           }
         },
-        "additional 7 (10)": {
+        "additional710": {
           "description": "",
           "type": "color",
           "value": "#5591d81a",
@@ -654,7 +654,7 @@
             }
           }
         },
-        "additional 8 (100)": {
+        "additional8100": {
           "description": "",
           "type": "color",
           "value": "#ae55d8ff",
@@ -666,7 +666,7 @@
             }
           }
         },
-        "additional 8 (10)": {
+        "additional810": {
           "description": "",
           "type": "color",
           "value": "#ae55d81a",
@@ -678,7 +678,7 @@
             }
           }
         },
-        "additional 9 (100)": {
+        "additional9100": {
           "description": "",
           "type": "color",
           "value": "#22b490ff",
@@ -690,7 +690,7 @@
             }
           }
         },
-        "additional 9 (10)": {
+        "additional910": {
           "description": "",
           "type": "color",
           "value": "#22b4901a",
@@ -728,7 +728,7 @@
             }
           }
         },
-        "button typo": {
+        "buttonTypo": {
           "description": "",
           "type": "color",
           "value": "#404041ff",
@@ -764,7 +764,7 @@
             }
           }
         },
-        "border 50": {
+        "border50": {
           "description": "",
           "type": "color",
           "value": "#59595980",
@@ -788,7 +788,7 @@
             }
           }
         },
-        "background 50": {
+        "background50": {
           "description": "",
           "type": "color",
           "value": "#00000080",
@@ -815,7 +815,7 @@
       },
       "merchands": {
         "carrefour": {
-          "carrefour-30": {
+          "carrefour30": {
             "description": "",
             "type": "color",
             "value": "#8497d8ff",
@@ -827,7 +827,7 @@
               }
             }
           },
-          "carrefour-100": {
+          "carrefour100": {
             "description": "",
             "type": "color",
             "value": "#314fb9ff",
@@ -841,7 +841,7 @@
           }
         },
         "makro": {
-          "makro-100": {
+          "makro100": {
             "description": "",
             "type": "color",
             "value": "#072386ff",
@@ -853,7 +853,7 @@
               }
             }
           },
-          "makro-30": {
+          "makro30": {
             "description": "",
             "type": "color",
             "value": "#7c8abcff",
@@ -865,7 +865,7 @@
               }
             }
           },
-          "makro additional": {
+          "makroAdditional": {
             "description": "",
             "type": "color",
             "value": "#173c7bff",
@@ -882,7 +882,7 @@
     }
   },
   "font": {
-    "style 0": {
+    "style0": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 24,
@@ -904,7 +904,7 @@
         }
       }
     },
-    "style 1": {
+    "style1": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 24,
@@ -926,7 +926,7 @@
         }
       }
     },
-    "style 2": {
+    "style2": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 20,
@@ -948,7 +948,7 @@
         }
       }
     },
-    "style 3": {
+    "style3": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 18,
@@ -970,7 +970,7 @@
         }
       }
     },
-    "style 4_s": {
+    "style4S": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 18,
@@ -992,7 +992,7 @@
         }
       }
     },
-    "style 5": {
+    "style5": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 16,
@@ -1014,7 +1014,7 @@
         }
       }
     },
-    "style 6": {
+    "style6": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 15,
@@ -1036,7 +1036,7 @@
         }
       }
     },
-    "style 6_u": {
+    "style6U": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 15,
@@ -1058,7 +1058,7 @@
         }
       }
     },
-    "style 7": {
+    "style7": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 15,
@@ -1080,7 +1080,7 @@
         }
       }
     },
-    "style 7_u": {
+    "style7U": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 15,
@@ -1102,7 +1102,7 @@
         }
       }
     },
-    "style 8": {
+    "style8": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 15,
@@ -1124,7 +1124,7 @@
         }
       }
     },
-    "style 9": {
+    "style9": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 13,
@@ -1146,7 +1146,7 @@
         }
       }
     },
-    "style 10": {
+    "style10": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 13,
@@ -1168,7 +1168,7 @@
         }
       }
     },
-    "style 10_s": {
+    "style10S": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 13,
@@ -1190,7 +1190,7 @@
         }
       }
     },
-    "style 10_u": {
+    "style10U": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 13,
@@ -1212,7 +1212,7 @@
         }
       }
     },
-    "style 11": {
+    "style11": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 13,
@@ -1234,7 +1234,7 @@
         }
       }
     },
-    "style 11_i": {
+    "style11I": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 13,
@@ -1256,7 +1256,7 @@
         }
       }
     },
-    "style 12": {
+    "style12": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 12,
@@ -1278,7 +1278,7 @@
         }
       }
     },
-    "style 13": {
+    "style13": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 12,
@@ -1300,7 +1300,7 @@
         }
       }
     },
-    "style 14": {
+    "style14": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 11,
@@ -1322,7 +1322,7 @@
         }
       }
     },
-    "style 15": {
+    "style15": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 11,
@@ -1344,7 +1344,7 @@
         }
       }
     },
-    "style 16": {
+    "style16": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 11,
@@ -1366,7 +1366,7 @@
         }
       }
     },
-    "style 16_s": {
+    "style16S": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 11,
@@ -1388,7 +1388,7 @@
         }
       }
     },
-    "style 17": {
+    "style17": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 10,
@@ -1410,7 +1410,7 @@
         }
       }
     },
-    "styly 18": {
+    "styly18": {
       "type": "custom-fontStyle",
       "value": {
         "fontSize": 20,
@@ -1434,7 +1434,7 @@
     }
   },
   "effect": {
-    "cień z dołu": {
+    "cieZDoU": {
       "description": null,
       "type": "custom-shadow",
       "value": {
@@ -1452,7 +1452,7 @@
         }
       }
     },
-    "cień z góry": {
+    "cieZGRy": {
       "description": null,
       "type": "custom-shadow",
       "value": {
@@ -1470,7 +1470,7 @@
         }
       }
     },
-    "divider 1": {
+    "divider1": {
       "description": null,
       "type": "custom-shadow",
       "value": {

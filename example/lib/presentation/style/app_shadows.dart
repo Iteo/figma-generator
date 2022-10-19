@@ -4,19 +4,19 @@ class AppShadows {
   const AppShadows._();
 
   static Map<String, BoxShadow> get allShadows => {
-        "cień z dołu": ciezdou,
-        "cień z góry": ciezgry,
-        "divider 1": divider1,
+        "cieZDoU": cieZDoU,
+        "cieZGRy": cieZGRy,
+        "divider1": divider1,
       };
 
-  static const BoxShadow ciezdou = BoxShadow(
+  static const BoxShadow cieZDoU = BoxShadow(
     blurRadius: 16,
     spreadRadius: 0,
     color: Color(0x1A000000),
     offset: Offset(0, 8),
   );
 
-  static const BoxShadow ciezgry = BoxShadow(
+  static const BoxShadow cieZGRy = BoxShadow(
     blurRadius: 16,
     spreadRadius: 0,
     color: Color(0x05000000),
