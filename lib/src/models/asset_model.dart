@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 enum AssetModelType { image, svg, audio, json, other }
 
 class AssetModel {
@@ -5,7 +6,7 @@ class AssetModel {
   final String ext;
   final AssetModelType type;
   final String name;
-  final double size;
+  final String size;
 
   AssetModel({
     required this.path,
@@ -20,7 +21,7 @@ class AssetModel {
     String? ext,
     AssetModelType? type,
     String? name,
-    double? size,
+    String? size,
   }) {
     return AssetModel(
       path: path ?? this.path,
@@ -29,22 +30,5 @@ class AssetModel {
       name: name ?? this.name,
       size: size ?? this.size,
     );
-  }
-
-  @override
-  String toString() {
-    return 'AssetModel(path: $path, ext: $ext, type: $type, name: $name, size: $size)';
-  }
-
-  @override
-  bool operator ==(covariant AssetModel other) {
-    if (identical(this, other)) return true;
-
-    return other.path == path && other.ext == ext && other.type == type && other.name == name && other.size == size;
-  }
-
-  @override
-  int get hashCode {
-    return path.hashCode ^ ext.hashCode ^ type.hashCode ^ name.hashCode ^ size.hashCode;
   }
 }
