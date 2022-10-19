@@ -152,8 +152,13 @@ class Dark$className extends $className {
 
       buffer.writeln('\nMap<String, Color> get ${parent}Colors => {');
 
+      String? previous = '';
+
       for (final color in colorList) {
-        buffer.writeln('"${color.description}": ${color.name},');
+        if (previous != color.name) {
+          previous = color.name;
+          buffer.writeln('"${color.description}": ${color.name},');
+        }
       }
 
       buffer.writeln("};");
@@ -179,7 +184,7 @@ class Dark$className extends $className {
         colorList.addAll(
           _getAppColor(
             value,
-            name: key,
+            name: _getColorName(key),
             isDark: isDark ?? key.startsWith("dark"),
           ),
         );

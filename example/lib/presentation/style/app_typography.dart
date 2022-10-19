@@ -4,173 +4,305 @@ class AppTypography {
   const AppTypography._();
 
   static Map<String, TextStyle> get allStyles => {
-        "b1": b1,
-        "b2": b2,
-        "b3": b3,
-        "b4": b4,
-        "b5": b5,
-        "h1": h1,
-        "h2": h2,
-        "h3": h3,
-        "h4": h4,
-        "h5": h5,
-        "h6": h6,
-        "info": info,
-        "info 2": info2,
-        "info 3": info3,
+        "style 0": style0,
+        "style 1": style1,
+        "style 10": style10,
+        "style 10_s": style10s,
+        "style 10_u": style10u,
+        "style 11": style11,
+        "style 11_i": style11i,
+        "style 12": style12,
+        "style 13": style13,
+        "style 14": style14,
+        "style 15": style15,
+        "style 16": style16,
+        "style 16_s": style16s,
+        "style 17": style17,
+        "style 2": style2,
+        "style 3": style3,
+        "style 4_s": style4s,
+        "style 5": style5,
+        "style 6": style6,
+        "style 6_u": style6u,
+        "style 7": style7,
+        "style 7_u": style7u,
+        "style 8": style8,
+        "style 9": style9,
+        "styly 18": styly18,
       };
 
-  static const TextStyle b1 = TextStyle(
+  static const TextStyle style0 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 24,
+    height: 1.3333333333333333,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w700,
+    decoration: TextDecoration.none,
+    debugLabel: "style0",
+  );
+
+  static const TextStyle style1 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 24,
+    height: 1.3333333333333333,
+    fontStyle: FontStyle.normal,
+    letterSpacing: -0.2,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.none,
+    debugLabel: "style1",
+  );
+
+  static const TextStyle style10 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    height: 1.5384615384615385,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
+    debugLabel: "style10",
+  );
+
+  static const TextStyle style10s = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    height: 1.5384615384615385,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.lineThrough,
+    debugLabel: "style10s",
+  );
+
+  static const TextStyle style10u = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    height: 1.5384615384615385,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.underline,
+    debugLabel: "style10u",
+  );
+
+  static const TextStyle style11 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    height: 1.5384615384615385,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.none,
+    debugLabel: "style11",
+  );
+
+  static const TextStyle style11i = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    height: 1.5384615384615385,
+    fontStyle: FontStyle.italic,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.none,
+    debugLabel: "style11i",
+  );
+
+  static const TextStyle style12 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 12,
+    height: 1.3333333333333333,
+    fontStyle: FontStyle.normal,
+    letterSpacing: -0.2,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
+    debugLabel: "style12",
+  );
+
+  static const TextStyle style13 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 12,
+    height: 1.3333333333333333,
+    fontStyle: FontStyle.normal,
+    letterSpacing: -0.2,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.none,
+    debugLabel: "style13",
+  );
+
+  static const TextStyle style14 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 11,
+    height: 1.4545454545454546,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.3,
+    fontWeight: FontWeight.w700,
+    decoration: TextDecoration.none,
+    debugLabel: "style14",
+  );
+
+  static const TextStyle style15 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 11,
+    height: 1.4545454545454546,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.3,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
+    debugLabel: "style15",
+  );
+
+  static const TextStyle style16 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 11,
+    height: 1.4545454545454546,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.3,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.none,
+    debugLabel: "style16",
+  );
+
+  static const TextStyle style16s = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 11,
+    height: 1.4545454545454546,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.3,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.lineThrough,
+    debugLabel: "style16s",
+  );
+
+  static const TextStyle style17 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 10,
+    height: 1.6,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.none,
+    debugLabel: "style17",
+  );
+
+  static const TextStyle style2 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 20,
+    height: 1.4,
+    fontStyle: FontStyle.normal,
+    letterSpacing: -0.2,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
+    debugLabel: "style2",
+  );
+
+  static const TextStyle style3 = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 18,
-    height: 1.7777777777777777,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w500,
-    decoration: TextDecoration.none,
-    debugLabel: "b1",
-  );
-
-  static const TextStyle b2 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 16,
-    height: 2.0,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w500,
-    decoration: TextDecoration.none,
-    debugLabel: "b2",
-  );
-
-  static const TextStyle b3 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 14,
-    height: 1.7142857142857142,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w500,
-    decoration: TextDecoration.none,
-    debugLabel: "b3",
-  );
-
-  static const TextStyle b4 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 16,
-    height: 1.5,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w400,
-    decoration: TextDecoration.none,
-    debugLabel: "b4",
-  );
-
-  static const TextStyle b5 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 14,
-    height: 1.7142857142857142,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w600,
-    decoration: TextDecoration.none,
-    debugLabel: "b5",
-  );
-
-  static const TextStyle h1 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 44,
-    height: 1.2727272727272727,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w500,
-    decoration: TextDecoration.none,
-    debugLabel: "h1",
-  );
-
-  static const TextStyle h2 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 36,
-    height: 1.5555555555555556,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w500,
-    decoration: TextDecoration.none,
-    debugLabel: "h2",
-  );
-
-  static const TextStyle h3 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 24,
     height: 1.3333333333333333,
     fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w500,
-    decoration: TextDecoration.none,
-    debugLabel: "h3",
-  );
-
-  static const TextStyle h4 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 24,
-    height: 1.3333333333333333,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
+    letterSpacing: -0.2,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.none,
-    debugLabel: "h4",
+    debugLabel: "style3",
   );
 
-  static const TextStyle h5 = TextStyle(
+  static const TextStyle style4s = TextStyle(
     fontFamily: 'Montserrat',
-    fontSize: 20,
+    fontSize: 18,
+    height: 1.3333333333333333,
+    fontStyle: FontStyle.normal,
+    letterSpacing: -0.2,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.lineThrough,
+    debugLabel: "style4s",
+  );
+
+  static const TextStyle style5 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 16,
+    height: 1.0,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.3,
+    fontWeight: FontWeight.w600,
+    decoration: TextDecoration.none,
+    debugLabel: "style5",
+  );
+
+  static const TextStyle style6 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 15,
     height: 1.6,
     fontStyle: FontStyle.normal,
     letterSpacing: 0,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     decoration: TextDecoration.none,
-    debugLabel: "h5",
+    debugLabel: "style6",
   );
 
-  static const TextStyle h6 = TextStyle(
+  static const TextStyle style6u = TextStyle(
     fontFamily: 'Montserrat',
-    fontSize: 20,
+    fontSize: 15,
+    height: 1.6,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0,
+    fontWeight: FontWeight.w700,
+    decoration: TextDecoration.underline,
+    debugLabel: "style6u",
+  );
+
+  static const TextStyle style7 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 15,
     height: 1.6,
     fontStyle: FontStyle.normal,
     letterSpacing: 0,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.none,
-    debugLabel: "h6",
+    debugLabel: "style7",
   );
 
-  static const TextStyle info = TextStyle(
+  static const TextStyle style7u = TextStyle(
     fontFamily: 'Montserrat',
-    fontSize: 12,
-    height: 1.3333333333333333,
-    fontStyle: FontStyle.normal,
-    letterSpacing: 0,
-    fontWeight: FontWeight.w500,
-    decoration: TextDecoration.none,
-    debugLabel: "info",
-  );
-
-  static const TextStyle info2 = TextStyle(
-    fontFamily: 'Montserrat',
-    fontSize: 12,
-    height: 1.3333333333333333,
+    fontSize: 15,
+    height: 1.6,
     fontStyle: FontStyle.normal,
     letterSpacing: 0,
     fontWeight: FontWeight.w600,
-    decoration: TextDecoration.none,
-    debugLabel: "info2",
+    decoration: TextDecoration.underline,
+    debugLabel: "style7u",
   );
 
-  static const TextStyle info3 = TextStyle(
+  static const TextStyle style8 = TextStyle(
     fontFamily: 'Montserrat',
-    fontSize: 12,
-    height: 1.3333333333333333,
+    fontSize: 15,
+    height: 1.6,
     fontStyle: FontStyle.normal,
     letterSpacing: 0,
     fontWeight: FontWeight.w500,
     decoration: TextDecoration.none,
-    debugLabel: "info3",
+    debugLabel: "style8",
+  );
+
+  static const TextStyle style9 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    height: 1.5384615384615385,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.3,
+    fontWeight: FontWeight.w700,
+    decoration: TextDecoration.none,
+    debugLabel: "style9",
+  );
+
+  static const TextStyle styly18 = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 20,
+    height: 1.4,
+    fontStyle: FontStyle.normal,
+    letterSpacing: -0.2,
+    fontWeight: FontWeight.w500,
+    decoration: TextDecoration.none,
+    debugLabel: "styly18",
   );
 }

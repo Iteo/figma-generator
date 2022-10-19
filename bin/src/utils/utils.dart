@@ -1,9 +1,21 @@
-import 'dart:developer';
+// ignore_for_file: avoid_print
 
+import '../models/app_shadow.dart';
 import '../models/app_typography.dart';
 
 String toColor(String str) {
   return 'Color(0x${str.substring(0, 7).replaceFirst("#", str.substring(7, 9)).toUpperCase()})';
+}
+
+String shadowParser(AppShadow shadow) {
+  final buffer = StringBuffer();
+
+  buffer.writeln("blurRadius: ${shadow.radius},");
+  buffer.writeln("spreadRadius: ${shadow.spread},");
+  buffer.writeln("color: ${toColor(shadow.color!)},");
+  buffer.writeln("offset:  Offset(${shadow.offsetX}, ${shadow.offsetY}),");
+
+  return buffer.toString();
 }
 
 String typographyParser(AppTypography typography) {
@@ -65,9 +77,9 @@ double computeFontSize(int? fontSize, int? lineHeight) {
 }
 
 void printInfo(String info) {
-  log('\u001b[32mTTFL: $info\u001b[0m');
+  print('\u001b[32mFG: $info\u001b[0m');
 }
 
 void printError(String error) {
-  log('\u001b[31m[ERROR] TTFL: $error\u001b[0m');
+  print('\u001b[31m[ERROR] TTFL: $error\u001b[0m');
 }
