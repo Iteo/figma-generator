@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:figma_generator/figma_generator.dart';
+import 'package:figma_generator/src/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
@@ -30,7 +34,7 @@ const _pagesName = [
   "Colors",
   "Font styles",
   "Shadows",
-  "Dimenss",
+  "Dimens",
   "Assets",
 ];
 
@@ -234,7 +238,36 @@ class _Assets extends HookWidget {
   Widget build(BuildContext context) {
     final assets = useState<List<AssetModel>>([]);
 
-    useEffect(() {});
+    useEffect(() {
+      SchedulerBinding.instance.addPostFrameCallback((_) async {
+        final assetManifest = await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
+        final Map<String, dynamic> manifestMap = json.decode(assetManifest);
+        final filtered = manifestMap.keys.where((path) => path.startsWith('assets/')).toList();
+
+        filtered.removeWhere((element) => element.contains(".DS_Store"));
+
+        List<AssetModel> newAssets = [];
+
+        for (var value in filtered) {
+          final ext = value.split(".").last;
+          final name = value.split("/").last;
+          final size = await UtilsApp.getFileSize(value, 1);
+          final type = UtilsApp.getAssetType(ext);
+
+          final asset = AssetModel(
+            ext: ext,
+            name: name,
+            path: value,
+            size: size,
+            type: type,
+          );
+
+          newAssets.add(asset);
+        }
+
+        assets.value = newAssets;
+      });
+    });
 
     return Visibility(
       visible: assets.value.isNotEmpty,
@@ -264,6 +297,20 @@ class _AssetTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget _subtitle(String text, Color color) => Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(4),
+            color: color.withOpacity(0.12),
+          ),
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                  color: color,
+                ),
+          ),
+        );
+
     return ExpansionTile(
       collapsedIconColor: Theme.of(context).primaryColor,
       iconColor: Theme.of(context).primaryColor,
@@ -272,13 +319,37 @@ class _AssetTile extends StatelessWidget {
         vertical: 8,
       ),
       title: Text(
-        asset.name,
+        asset.name.replaceAll("%20", " "),
         style: Theme.of(context).textTheme.bodyText1?.copyWith(
               fontWeight: FontWeight.bold,
             ),
       ),
-      children: const [
-        Text(_loremIpsum),
+      subtitle: Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: Wrap(
+          runSpacing: 8,
+          spacing: 8,
+          children: [
+            _subtitle(asset.type.name, Colors.orangeAccent),
+            _subtitle(asset.size, Colors.blueAccent),
+            _subtitle(asset.ext, Colors.redAccent),
+          ],
+        ),
+      ),
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: FutureBuilder<Widget>(
+            future: UtilsApp.getAssetWidget(asset, context),
+            builder: (context, value) => value.hasData
+                ? value.data!
+                : Center(
+                    child: CircularProgressIndicator(
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+          ),
+        ),
       ],
     );
   }
