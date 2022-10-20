@@ -1,12 +1,14 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
 import 'src/templates/class_color_template.dart';
 import 'src/templates/class_dimens_template.dart';
+import 'src/templates/class_shadow_template.dart';
 import 'src/templates/class_typography_template.dart';
 import 'src/utils/utils.dart';
 
@@ -24,7 +26,7 @@ bool _isHelpCommand(List<String> args) {
 
 void _printHelperDisplay() {
   final parser = _generateArgParser(null);
-  log(parser.usage);
+  printInfo(parser.usage);
 }
 
 GenerateOptions _generateOption(List<String> args) {
@@ -50,7 +52,7 @@ ArgParser _generateArgParser(GenerateOptions? generateOptions) {
     abbr: 'F',
     defaultsTo: 'styles.json',
     callback: (String? x) => generateOptions!.sourceFile = x,
-    help: 'File with color and font styles',
+    help: 'File with styles',
   );
 
   parser.addOption(
@@ -78,6 +80,14 @@ ArgParser _generateArgParser(GenerateOptions? generateOptions) {
   );
 
   parser.addOption(
+    'output-file-shadows',
+    abbr: 's',
+    defaultsTo: 'app_shadows.dart',
+    callback: (String? x) => generateOptions!.outputFileShadows = x,
+    help: 'Output shadows file name',
+  );
+
+  parser.addOption(
     'output-file-dimens',
     abbr: 'd',
     defaultsTo: 'app_dimens.dart',
@@ -96,6 +106,7 @@ class GenerateOptions {
   String? outputFileColors;
   String? outputFileTypography;
   String? outputFileDimens;
+  String? outputFileShadows;
 }
 
 Future<void> _handleStyleFiles(GenerateOptions options) async {
@@ -106,6 +117,7 @@ Future<void> _handleStyleFiles(GenerateOptions options) async {
 
   final outputFileColors = Directory(path.join(current.path, output.path, options.outputFileColors));
   final outputFileTypography = Directory(path.join(current.path, output.path, options.outputFileTypography));
+  final outputFileShadows = Directory(path.join(current.path, output.path, options.outputFileShadows));
   final outputFileDimens = Directory(path.join(current.path, output.path, options.outputFileDimens));
 
   if (!await sourcePath.exists()) {
@@ -150,7 +162,18 @@ Future<void> _handleStyleFiles(GenerateOptions options) async {
           'fonts',
         );
       } else {
-        printError('Not found font style data');
+        printError('Not found fonts style data');
+      }
+
+      if (data['effect'] != null) {
+        await _generateFile(
+          data['effect'],
+          outputFileShadows,
+          getClassName(outputFileShadows),
+          'effect',
+        );
+      } else {
+        printError('Not found shadows data');
       }
     }
   } else {
@@ -193,6 +216,10 @@ Future<void> _generateFile(
   String className,
   String type,
 ) async {
+  print('');
+
+  printInfo("Generating a $className class...");
+
   final generatedFile = File(outputPath.path);
   if (!generatedFile.existsSync()) {
     generatedFile.createSync(recursive: true);
@@ -204,6 +231,8 @@ Future<void> _generateFile(
     await _generateColorClass(classBuilder, data, className);
   } else if (type == 'fonts') {
     await _generateTypographyClass(classBuilder, data, className);
+  } else if (type == 'effect') {
+    await _generateShadowClass(classBuilder, data, className);
   } else {
     _generateDimensClass(classBuilder, className);
   }
@@ -234,6 +263,19 @@ Future _generateTypographyClass(
 ) async {
   classBuilder.write(
     await ClassTypographyTemplate(
+      className: className,
+      data: data,
+    ).generate(),
+  );
+}
+
+Future _generateShadowClass(
+  StringBuffer classBuilder,
+  Map<String, dynamic> data,
+  String className,
+) async {
+  classBuilder.write(
+    await ClassShadowTemplate(
       className: className,
       data: data,
     ).generate(),

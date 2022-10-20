@@ -1,27 +1,28 @@
 name: figma_generator
-description: Generator styles from figma
+description: Styles generator from figma
 version: 0.0.1
 homepage: none
 publish_to: none
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
-  flutter: 3.0.0
+  flutter: ^3.0.0
 
 dependencies:
-  analyzer: 5.0.0
-  args: 2.3.1
+  analyzer: ^5.0.0
+  args: ^2.3.1
   flutter:
     sdk: flutter
-  json_annotation: 4.6.0
-  meta: 1.7.0
-  path: 1.8.1
+  json_annotation: ^4.6.0
+  meta: ^1.7.0
+  path: ^1.8.1
   flutter_hooks: 0.18.5+1
   path_provider: ^2.0.11
+  flutter_svg: ^1.0.0
 
 dev_dependencies:
-  build_runner: 2.2.1
-  flutter_lints: 2.0.1
-  json_serializable: 6.3.2
+  build_runner: ^2.2.1
+  flutter_lints: ^2.0.1
+  json_serializable: ^6.3.2
   flutter_test:
     sdk: flutter
