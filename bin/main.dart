@@ -6,11 +6,15 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
+import 'src/models/app_config.dart';
+import 'src/models/app_dimen.dart';
 import 'src/templates/class_color_template.dart';
 import 'src/templates/class_dimens_template.dart';
 import 'src/templates/class_shadow_template.dart';
 import 'src/templates/class_typography_template.dart';
 import 'src/utils/utils.dart';
+
+const String defaultConfigFile = "figma_generator.yaml";
 
 Future<void> main(List<String> args) async {
   if (_isHelpCommand(args)) {
@@ -29,6 +33,10 @@ void _printHelperDisplay() {
   printInfo(parser.usage);
 }
 
+AppConfig _loadConfigFile(String? path) {
+  return AppConfig.loadConfigFromPath(path ?? defaultConfigFile);
+}
+
 GenerateOptions _generateOption(List<String> args) {
   final generateOptions = GenerateOptions();
   _generateArgParser(generateOptions).parse(args);
@@ -40,187 +48,90 @@ ArgParser _generateArgParser(GenerateOptions? generateOptions) {
   final parser = ArgParser();
 
   parser.addOption(
-    'source-dir',
-    abbr: 'S',
-    defaultsTo: 'assets',
-    callback: (String? x) => generateOptions!.sourceDir = x,
-    help: 'Folder containing styles files',
-  );
-
-  parser.addOption(
-    'source-file',
-    abbr: 'F',
-    defaultsTo: 'styles.json',
-    callback: (String? x) => generateOptions!.sourceFile = x,
-    help: 'File with styles',
-  );
-
-  parser.addOption(
-    'output-dir',
-    abbr: 'O',
-    defaultsTo: 'lib/presentation/style',
-    callback: (String? x) => generateOptions!.outputDir = x,
-    help: 'Output folder for the generated file',
-  );
-
-  parser.addOption(
-    'output-file-colors',
-    abbr: 'c',
-    defaultsTo: 'app_colors.dart',
-    callback: (String? x) => generateOptions!.outputFileColors = x,
-    help: 'Output colors file name',
-  );
-
-  parser.addOption(
-    'output-file-typography',
-    abbr: 't',
-    defaultsTo: 'app_typography.dart',
-    callback: (String? x) => generateOptions!.outputFileTypography = x,
-    help: 'Output typography file name',
-  );
-
-  parser.addOption(
-    'output-file-shadows',
-    abbr: 's',
-    defaultsTo: 'app_shadows.dart',
-    callback: (String? x) => generateOptions!.outputFileShadows = x,
-    help: 'Output shadows file name',
-  );
-
-  parser.addOption(
-    'output-file-dimens',
-    abbr: 'd',
-    defaultsTo: 'app_dimens.dart',
-    callback: (String? x) => generateOptions!.outputFileDimens = x,
-    help: 'Output dimens file name',
+    'config',
+    abbr: 'f',
+    defaultsTo: 'figma_generator.yaml',
+    callback: (String? x) => generateOptions!.config = x,
+    help: 'Config file path',
   );
 
   return parser;
 }
 
 class GenerateOptions {
-  String? sourceDir;
-  String? sourceFile;
-  String? templateLocale;
-  String? outputDir;
-  String? outputFileColors;
-  String? outputFileTypography;
-  String? outputFileDimens;
-  String? outputFileShadows;
+  String? config;
 }
 
 Future<void> _handleStyleFiles(GenerateOptions options) async {
   final current = Directory.current;
-  final source = Directory.fromUri(Uri.parse(options.sourceDir!));
-  final output = Directory.fromUri(Uri.parse(options.outputDir!));
-  final sourcePath = Directory(path.join(current.path, source.path));
 
-  final outputFileColors = Directory(path.join(current.path, output.path, options.outputFileColors));
-  final outputFileTypography = Directory(path.join(current.path, output.path, options.outputFileTypography));
-  final outputFileShadows = Directory(path.join(current.path, output.path, options.outputFileShadows));
-  final outputFileDimens = Directory(path.join(current.path, output.path, options.outputFileDimens));
+  AppConfig appConfig = _loadConfigFile(options.config);
 
-  if (!await sourcePath.exists()) {
-    printError('Source path does not exist');
+  final sourceFile = File(path.join(current.path, appConfig.sourceFilePath));
+
+  final outputFileColors = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileColors));
+  final outputFileTypography = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileTypography));
+  final outputFileShadows = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileShadows));
+  final outputFileDimens = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileDimens));
+
+  if (!await sourceFile.exists()) {
+    printError('Source file does not exist (${sourceFile.toString()})');
     return;
   }
 
-  var files = await dirContents(sourcePath);
+  final dynamic data = json.decode(await sourceFile.readAsString());
 
-  if (options.sourceFile != null) {
-    final sourceFile = File(path.join(source.path, options.sourceFile));
-    if (!await sourceFile.exists()) {
-      printError('Source file does not exist (${sourceFile.toString()})');
-      return;
-    }
-    files = [sourceFile];
-  } else {
-    files = files.where((f) => f.path.contains('styles.json')).toList();
-  }
-
-  if (files.isNotEmpty) {
-    final fileData = File(files.first.path);
-    final dynamic data = json.decode(await fileData.readAsString());
-
-    if (data is Map<String, dynamic>) {
-      if (data['color'] != null) {
-        await _generateFile(
-          data['color'],
-          outputFileColors,
-          getClassName(outputFileColors),
-          'colors',
-        );
-      } else {
-        printError('Not found colors data');
-      }
-
-      if (data['font'] != null) {
-        await _generateFile(
-          data['font'],
-          outputFileTypography,
-          getClassName(outputFileTypography),
-          'fonts',
-        );
-      } else {
-        printError('Not found fonts style data');
-      }
-
-      if (data['effect'] != null) {
-        await _generateFile(
-          data['effect'],
-          outputFileShadows,
-          getClassName(outputFileShadows),
-          'effect',
-        );
-      } else {
-        printError('Not found shadows data');
-      }
-    }
-  } else {
-    printError('Source path empty');
-  }
-
-  await _generateFile(
-    {},
-    outputFileDimens,
-    getClassName(outputFileDimens),
-    '',
-  );
-}
-
-String getClassName(Directory fileName) {
-  return fileName.path
-      .split("/")
-      .last
-      .split("_")
-      .map((e) => e.substring(0, 1).toUpperCase() + e.substring(1))
-      .join()
-      .split('.dart')[0];
-}
-
-Future<List<FileSystemEntity>> dirContents(Directory dir) {
-  final files = <FileSystemEntity>[];
-  final completer = Completer<List<FileSystemEntity>>();
-
-  dir.list().listen(
-        files.add,
-        onDone: () => completer.complete(files),
+  if (data is Map<String, dynamic>) {
+    if (appConfig.generateColors) {
+      await _generateFile(
+        data['color'],
+        outputFileColors,
+        appConfig.colorsClassName,
+        'colors',
       );
+    }
 
-  return completer.future;
+    if (appConfig.generateTypography) {
+      await _generateFile(
+        data['font'],
+        outputFileTypography,
+        appConfig.typographyClassName,
+        'fonts',
+      );
+    }
+
+    if (appConfig.generateShadows) {
+      await _generateFile(
+        data['effect'],
+        outputFileShadows,
+        appConfig.shadowsClassName,
+        'effect',
+      );
+    }
+  }
+
+  if (appConfig.generateDimens) {
+    await _generateFile(
+      {"dimens": appConfig.dimens},
+      outputFileDimens,
+      appConfig.dimensClassName,
+      'dimens',
+    );
+  }
 }
 
 Future<void> _generateFile(
-  Map<String, dynamic> data,
-  Directory outputPath,
+  Map<String, dynamic>? data,
+  File outputPath,
   String className,
   String type,
 ) async {
-  print('');
+  if (data == null) return printError('Not found $type data');
 
   printInfo("Generating a $className class...");
 
   final generatedFile = File(outputPath.path);
+
   if (!generatedFile.existsSync()) {
     generatedFile.createSync(recursive: true);
   }
@@ -233,8 +144,8 @@ Future<void> _generateFile(
     await _generateTypographyClass(classBuilder, data, className);
   } else if (type == 'effect') {
     await _generateShadowClass(classBuilder, data, className);
-  } else {
-    _generateDimensClass(classBuilder, className);
+  } else if (type == 'dimens') {
+    _generateDimensClass(classBuilder, data['dimens'], className);
   }
 
   classBuilder.writeln('}');
@@ -284,7 +195,13 @@ Future _generateShadowClass(
 
 void _generateDimensClass(
   StringBuffer classBuilder,
+  List<AppDimen> data,
   String className,
 ) {
-  classBuilder.write(ClassAppDimensTemplate().generate(className));
+  classBuilder.write(
+    ClassAppDimensTemplate(
+      className: className,
+      data: data,
+    ).generate(),
+  );
 }

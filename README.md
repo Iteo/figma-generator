@@ -305,78 +305,66 @@ class AppDimens {
 
   static Map<String, double> get allDimens => {
         "zero": 0.0,
-        "xxxsm": 2.0,
-        "xxsm": 4.0,
-        "xsm": 8.0,
-        "sm": 12.0,
-        "md": 16.0,
-        "big": 20.0,
-        "xbig": 24.0,
-        "xxbig": 28.0,
-        "xxxbig": 32.0,
-        "lg": 40.0,
-        "xlg": 48.0,
-        "xxlg": 64.0,
-        "xxxlg": 80.0,
-        "huge": 96.0,
-        "xhuge": 128.0,
-        "xxhuge": 160.0,
-        "xxxhuge": 192.0,
+        "one": 1.0,
+        "xxs": 2.0,
+        "xs": 4.0,
+        "s": 8.0,
+        "xm": 12.0,
+        "m": 16.0,
+        "ml": 20.0,
+        "l": 24.0,
+        "xl": 32.0,
+        "xxl": 40.0,
+        "xxxl": 48.0,
+        "c": 56.0,
+        "xxc": 72.0,
+        "xxxc": 80.0,
       };
 
   /// zero
   static const zero = 0.0;
 
-  /// xxxsm
-  static const xxxsm = 2.0;
+  /// one
+  static const one = 1.0;
 
-  /// xxsm
-  static const xxsm = 4.0;
+  /// xxs
+  static const xxs = 2.0;
 
-  /// xsm
-  static const xsm = 8.0;
+  /// xs
+  static const xs = 4.0;
 
-  /// sm
-  static const sm = 12.0;
+  /// s
+  static const s = 8.0;
 
-  /// md
-  static const md = 16.0;
+  /// xm
+  static const xm = 12.0;
 
-  /// big
-  static const big = 20.0;
+  /// m
+  static const m = 16.0;
 
-  /// xbig
-  static const xbig = 24.0;
+  /// ml
+  static const ml = 20.0;
 
-  /// xxbig
-  static const xxbig = 28.0;
+  /// l
+  static const l = 24.0;
 
-  /// xxxbig
-  static const xxxbig = 32.0;
+  /// xl
+  static const xl = 32.0;
 
-  /// lg
-  static const lg = 40.0;
+  /// xxl
+  static const xxl = 40.0;
 
-  /// xlg
-  static const xlg = 48.0;
+  /// xxxl
+  static const xxxl = 48.0;
 
-  /// xxlg
-  static const xxlg = 64.0;
+  /// c
+  static const c = 56.0;
 
-  /// xxxlg
-  static const xxxlg = 80.0;
+  /// xxc
+  static const xxc = 72.0;
 
-  /// huge
-  static const huge = 96.0;
-
-  /// xhuge
-  static const xhuge = 128.0;
-
-  /// xxhuge
-  static const xxhuge = 160.0;
-
-  /// xxxhuge
-  static const xxxhuge = 192.0;
+  /// xxxc
+  static const xxxc = 80.0;
 }
 ```
 
@@ -422,12 +410,7 @@ if you already have an exported styles file from figma, make sure it's in the fo
 | Args | Name     | Description                |
 | :-------- | :------- | :------------------------- |
 | `-h` | `help` | Showing all parameters |
-| `-S` | `source-dir` | Folder containing styles files (defaults is "assets/styles") |
-| `-F` | `source-file` | File with color and font styles (defaults is "styles.json") |
-| `-O` | `output-dir` | Output folder for the generated file (defaults is "lib/presentation/style") |
-| `-t` | `output-file-typography` | Output file name (defaults is "app_typography.dart") |
-| `-c` | `output-file-colors` |  Output file name (defaults is "app_colors.dart") |
-| `-d` | `output-file-dimens` |  Output file name (defaults is "app_dimens.dart") |
+| `-f` | `config` | Config file (defaults is "figma_generator.yaml") |
 
 </br>
 

@@ -1434,7 +1434,7 @@
     }
   },
   "effect": {
-    "cieZDoU": {
+    "shadowFromDown": {
       "description": null,
       "type": "custom-shadow",
       "value": {
@@ -1452,7 +1452,7 @@
         }
       }
     },
-    "cieZGRy": {
+    "shadowFromUp": {
       "description": null,
       "type": "custom-shadow",
       "value": {
@@ -1470,7 +1470,7 @@
         }
       }
     },
-    "divider1": {
+    "divider": {
       "description": null,
       "type": "custom-shadow",
       "value": {
