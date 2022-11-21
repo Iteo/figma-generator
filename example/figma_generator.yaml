@@ -1,0 +1,58 @@
+figma_generator:
+  #########
+  # Paths #
+  #########
+
+  #Default: assets/styles.json
+  source_file_path: assets/styles.json
+
+  #Default: lib/presentation/style
+  output_dir: lib/presentation/style
+
+  ###############
+  # Class names #
+  ###############
+
+  #Default: AppColors
+  colors_class_name: AppColors
+
+  #Default: AppTypography
+  typography_class_name: AppTypography
+
+  #Default: AppShadows
+  shadows_class_name: AppShadows
+
+  #Default: AppDimens
+  dimens_class_name: AppDimens
+
+  ################################
+  # What class will be generated #
+  ################################
+
+  #Default for all is true
+  generate_colors: true
+  generate_typography: true
+  generate_shadows: true
+  generate_dimens: true
+
+  ##########
+  # Dimens #
+  ##########
+
+  #Default is empty
+  dimens:
+    zero: 0
+    one: 1
+    xxs: 2
+    xs: 4
+    s: 8
+    xm: 12
+    m: 16
+    ml: 20
+    l: 24
+    xl: 32
+    xxl: 40
+    xxxl: 48
+    c: 56
+    xxc: 72
+    xxxc: 80

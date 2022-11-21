@@ -3,6 +3,8 @@
 import '../models/app_shadow.dart';
 import '../models/app_typography.dart';
 
+final _beforeNonLeadingCapitalLetter = RegExp(r"(?=(?!^)[A-Z])");
+
 String toColor(String str) {
   return 'Color(0x${str.substring(0, 7).replaceFirst("#", str.substring(7, 9)).toUpperCase()})';
 }
@@ -76,10 +78,13 @@ double computeFontSize(int? fontSize, int? lineHeight) {
   return ((lineHeight ?? 1) / (fontSize ?? 1));
 }
 
+String getFileNameFromClassName(String input) =>
+    '${input.split(_beforeNonLeadingCapitalLetter).join('_')}.dart'.toLowerCase();
+
 void printInfo(String info) {
   print('\u001b[32mFG: $info\u001b[0m');
 }
 
 void printError(String error) {
-  print('\u001b[31m[ERROR] TTFL: $error\u001b[0m');
+  print('\u001b[31m[ERROR] FG: $error\u001b[0m');
 }
