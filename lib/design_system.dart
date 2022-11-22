@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:figma_generator/figma_generator.dart';
 import 'package:figma_generator/src/views/widget_preview.dart';
 import 'package:flutter/cupertino.dart';
