@@ -4,31 +4,31 @@ class AppTypography {
   const AppTypography._();
 
   static Map<String, TextStyle> get allStyles => {
-        "style 0": style0,
-        "style 1": style1,
-        "style 10": style10,
-        "style 10_s": style10s,
-        "style 10_u": style10u,
-        "style 11": style11,
-        "style 11_i": style11i,
-        "style 12": style12,
-        "style 13": style13,
-        "style 14": style14,
-        "style 15": style15,
-        "style 16": style16,
-        "style 16_s": style16s,
-        "style 17": style17,
-        "style 2": style2,
-        "style 3": style3,
-        "style 4_s": style4s,
-        "style 5": style5,
-        "style 6": style6,
-        "style 6_u": style6u,
-        "style 7": style7,
-        "style 7_u": style7u,
-        "style 8": style8,
-        "style 9": style9,
-        "styly 18": styly18,
+        "style0": style0,
+        "style1": style1,
+        "style10": style10,
+        "style10S": style10S,
+        "style10U": style10U,
+        "style11": style11,
+        "style11I": style11I,
+        "style12": style12,
+        "style13": style13,
+        "style14": style14,
+        "style15": style15,
+        "style16": style16,
+        "style16S": style16S,
+        "style17": style17,
+        "style2": style2,
+        "style3": style3,
+        "style4S": style4S,
+        "style5": style5,
+        "style6": style6,
+        "style6U": style6U,
+        "style7": style7,
+        "style7U": style7U,
+        "style8": style8,
+        "style9": style9,
+        "styly18": styly18,
       };
 
   static const TextStyle style0 = TextStyle(
@@ -64,7 +64,7 @@ class AppTypography {
     debugLabel: "style10",
   );
 
-  static const TextStyle style10s = TextStyle(
+  static const TextStyle style10S = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 13,
     height: 1.5384615384615385,
@@ -72,10 +72,10 @@ class AppTypography {
     letterSpacing: 0,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.lineThrough,
-    debugLabel: "style10s",
+    debugLabel: "style10S",
   );
 
-  static const TextStyle style10u = TextStyle(
+  static const TextStyle style10U = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 13,
     height: 1.5384615384615385,
@@ -83,7 +83,7 @@ class AppTypography {
     letterSpacing: 0,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.underline,
-    debugLabel: "style10u",
+    debugLabel: "style10U",
   );
 
   static const TextStyle style11 = TextStyle(
@@ -97,7 +97,7 @@ class AppTypography {
     debugLabel: "style11",
   );
 
-  static const TextStyle style11i = TextStyle(
+  static const TextStyle style11I = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 13,
     height: 1.5384615384615385,
@@ -105,7 +105,7 @@ class AppTypography {
     letterSpacing: 0,
     fontWeight: FontWeight.w500,
     decoration: TextDecoration.none,
-    debugLabel: "style11i",
+    debugLabel: "style11I",
   );
 
   static const TextStyle style12 = TextStyle(
@@ -163,7 +163,7 @@ class AppTypography {
     debugLabel: "style16",
   );
 
-  static const TextStyle style16s = TextStyle(
+  static const TextStyle style16S = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 11,
     height: 1.4545454545454546,
@@ -171,7 +171,7 @@ class AppTypography {
     letterSpacing: 0.3,
     fontWeight: FontWeight.w500,
     decoration: TextDecoration.lineThrough,
-    debugLabel: "style16s",
+    debugLabel: "style16S",
   );
 
   static const TextStyle style17 = TextStyle(
@@ -207,7 +207,7 @@ class AppTypography {
     debugLabel: "style3",
   );
 
-  static const TextStyle style4s = TextStyle(
+  static const TextStyle style4S = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 18,
     height: 1.3333333333333333,
@@ -215,7 +215,7 @@ class AppTypography {
     letterSpacing: -0.2,
     fontWeight: FontWeight.w500,
     decoration: TextDecoration.lineThrough,
-    debugLabel: "style4s",
+    debugLabel: "style4S",
   );
 
   static const TextStyle style5 = TextStyle(
@@ -240,7 +240,7 @@ class AppTypography {
     debugLabel: "style6",
   );
 
-  static const TextStyle style6u = TextStyle(
+  static const TextStyle style6U = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 15,
     height: 1.6,
@@ -248,7 +248,7 @@ class AppTypography {
     letterSpacing: 0,
     fontWeight: FontWeight.w700,
     decoration: TextDecoration.underline,
-    debugLabel: "style6u",
+    debugLabel: "style6U",
   );
 
   static const TextStyle style7 = TextStyle(
@@ -262,7 +262,7 @@ class AppTypography {
     debugLabel: "style7",
   );
 
-  static const TextStyle style7u = TextStyle(
+  static const TextStyle style7U = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 15,
     height: 1.6,
@@ -270,7 +270,7 @@ class AppTypography {
     letterSpacing: 0,
     fontWeight: FontWeight.w600,
     decoration: TextDecoration.underline,
-    debugLabel: "style7u",
+    debugLabel: "style7U",
   );
 
   static const TextStyle style8 = TextStyle(

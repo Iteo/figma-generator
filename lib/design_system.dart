@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:figma_generator/figma_generator.dart';
-import 'package:figma_generator/src/utils/utils.dart';
+import 'package:figma_generator/src/views/widget_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -18,6 +18,8 @@ import 'package:flutter_svg/svg.dart';
 //      typography: AppTypography.allStyles,
 //      dimens: AppDimens.allDimens,
 //      shadows: AppShadows.allShadows,
+//      widgets: [CustomButton()],
+//      assetsDir: 'assets',
 //    ),
 //   body: Center(
 //     child: Text("Figma Generator"),
@@ -32,11 +34,23 @@ const _loremIpsum =
 
 const _pagesName = [
   "Colors",
-  "Font styles",
+  "Typography",
   "Shadows",
   "Dimens",
   "Assets",
+  "Widgets",
 ];
+
+const _pagesIcon = [
+  Icons.color_lens,
+  Icons.format_size,
+  Icons.contrast,
+  Icons.space_dashboard,
+  Icons.folder,
+  Icons.category_rounded
+];
+
+final _scaffoldKey = GlobalKey();
 
 class DesignSystemFloatingButton extends StatelessWidget {
   const DesignSystemFloatingButton({
@@ -45,6 +59,8 @@ class DesignSystemFloatingButton extends StatelessWidget {
     this.lightColors,
     this.darkColors,
     this.shadows,
+    this.widgets,
+    this.assetsDir,
     Key? key,
   }) : super(key: key);
 
@@ -53,6 +69,8 @@ class DesignSystemFloatingButton extends StatelessWidget {
   final Map<String, Map<String, Color>>? lightColors;
   final Map<String, Map<String, Color>>? darkColors;
   final Map<String, BoxShadow>? shadows;
+  final List<Widget>? widgets;
+  final String? assetsDir;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +84,8 @@ class DesignSystemFloatingButton extends StatelessWidget {
             typography: typography,
             dimens: dimens,
             shadows: shadows,
+            widgets: widgets,
+            assetsDir: assetsDir,
           ),
         ),
       ),
@@ -81,6 +101,8 @@ class _DesignSystemPage extends HookWidget {
     this.darkColors,
     this.dimens,
     this.shadows,
+    this.widgets,
+    this.assetsDir,
     Key? key,
   }) : super(key: key);
 
@@ -89,88 +111,82 @@ class _DesignSystemPage extends HookWidget {
   final Map<String, Map<String, Color>>? lightColors;
   final Map<String, Map<String, Color>>? darkColors;
   final Map<String, BoxShadow>? shadows;
+  final List<Widget>? widgets;
+  final String? assetsDir;
 
   @override
   Widget build(BuildContext context) {
     final currentPage = useState<int>(0);
-    final pageController = usePageController(initialPage: currentPage.value);
     final darkMode = useState<bool>(MediaQuery.of(context).platformBrightness == Brightness.dark);
-
-    useEffect(() {
-      pageController.addListener(() {
-        currentPage.value = pageController.page?.toInt() ?? 0;
-      });
-    });
 
     return MaterialApp(
       theme: darkMode.value
-          ? ThemeData.dark().copyWith(primaryColor: Colors.orange)
-          : ThemeData.light().copyWith(primaryColor: Colors.orange),
-      home: Scaffold(
-        appBar: AppBar(
-          systemOverlayStyle: darkMode.value ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: Text(_pagesName[currentPage.value]),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              icon: Icon(
-                darkMode.value ? Icons.sunny : Icons.dark_mode_rounded,
+          ? ThemeData.dark().copyWith(
+              primaryColor: Colors.orange,
+              appBarTheme: AppBarTheme(
+                color: ThemeData.dark().scaffoldBackgroundColor,
+                foregroundColor: Colors.white,
               ),
-              onPressed: () {
-                darkMode.value = !darkMode.value;
-              },
+            )
+          : ThemeData.light().copyWith(
+              primaryColor: Colors.orange,
+              appBarTheme: AppBarTheme(
+                color: ThemeData.light().scaffoldBackgroundColor,
+                foregroundColor: Colors.black,
+              ),
             ),
-          ],
-          foregroundColor: darkMode.value ? Colors.white : Colors.black,
-        ),
+      home: Scaffold(
+        key: _scaffoldKey,
         drawer: Drawer(
           child: Column(
             children: [
               const _DrawerHeader(),
-              _DrawerItem(
-                icon: Icons.color_lens,
-                title: "Colors",
-                isActive: currentPage.value == 0,
-                onTap: () => pageController.jumpToPage(0),
-              ),
-              _DrawerItem(
-                icon: Icons.format_size,
-                title: "Font styles",
-                isActive: currentPage.value == 1,
-                onTap: () => pageController.jumpToPage(1),
-              ),
-              _DrawerItem(
-                icon: Icons.contrast,
-                title: "Shadows",
-                isActive: currentPage.value == 2,
-                onTap: () => pageController.jumpToPage(2),
-              ),
-              _DrawerItem(
-                icon: Icons.space_dashboard,
-                title: "Dimens",
-                isActive: currentPage.value == 3,
-                onTap: () => pageController.jumpToPage(3),
-              ),
-              _DrawerItem(
-                icon: Icons.folder,
-                title: "Assets",
-                isActive: currentPage.value == 4,
-                onTap: () => pageController.jumpToPage(4),
-              ),
+              ..._pagesName.map(
+                (e) {
+                  var index = _pagesName.indexOf(e);
+                  return _DrawerItem(
+                    icon: _pagesIcon[index],
+                    title: e,
+                    isActive: currentPage.value == index,
+                    onTap: () => currentPage.value = index,
+                  );
+                },
+              ).toList(),
             ],
           ),
         ),
-        body: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: pageController,
-          children: [
-            _Colors(darkMode.value ? darkColors : lightColors),
-            _Typography(typography),
-            _Shadows(shadows),
-            _Dimens(dimens),
-            const _Assets(),
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              systemOverlayStyle: darkMode.value ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+              title: Text(_pagesName[currentPage.value]),
+              floating: true,
+              pinned: true,
+              centerTitle: true,
+              actions: [
+                IconButton(
+                  icon: Icon(
+                    darkMode.value ? Icons.sunny : Icons.dark_mode_rounded,
+                  ),
+                  onPressed: () {
+                    darkMode.value = !darkMode.value;
+                  },
+                ),
+              ],
+            ),
+            [
+              _Colors(darkMode.value ? darkColors : lightColors),
+              _Typography(typography),
+              _Shadows(shadows),
+              _Dimens(dimens),
+              _Assets(assetsDir),
+              _Widgets(widgets),
+            ][currentPage.value],
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: MediaQuery.of(context).padding.bottom,
+              ),
+            ),
           ],
         ),
       ),
@@ -232,7 +248,9 @@ class _DrawerItem extends StatelessWidget {
 }
 
 class _Assets extends HookWidget {
-  const _Assets({Key? key}) : super(key: key);
+  const _Assets(this.assetsDir, {Key? key}) : super(key: key);
+
+  final String? assetsDir;
 
   @override
   Widget build(BuildContext context) {
@@ -240,48 +258,28 @@ class _Assets extends HookWidget {
 
     useEffect(() {
       SchedulerBinding.instance.addPostFrameCallback((_) async {
-        final assetManifest = await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
-        final Map<String, dynamic> manifestMap = json.decode(assetManifest);
-        final filtered = manifestMap.keys.where((path) => path.startsWith('assets/')).toList();
-
-        filtered.removeWhere((element) => element.contains(".DS_Store"));
-
-        List<AssetModel> newAssets = [];
-
-        for (var value in filtered) {
-          final ext = value.split(".").last;
-          final name = value.split("/").last;
-          final size = await UtilsApp.getFileSize(value, 1);
-          final type = UtilsApp.getAssetType(ext);
-
-          final asset = AssetModel(
-            ext: ext,
-            name: name,
-            path: value,
-            size: size,
-            type: type,
-          );
-
-          newAssets.add(asset);
-        }
-
-        assets.value = newAssets;
+        assets.value = await UtilsApp.getAssets(context, assetsDir: assetsDir);
       });
-    });
+    }, []);
 
-    return Visibility(
+    return SliverVisibility(
       visible: assets.value.isNotEmpty,
-      replacement: Center(
-        child: CircularProgressIndicator(
-          color: Theme.of(context).primaryColor,
+      replacementSliver: SliverFillRemaining(
+        hasScrollBody: false,
+        child: Center(
+          child: CircularProgressIndicator(
+            color: Theme.of(context).primaryColor,
+          ),
         ),
       ),
-      child: ListView(
-        children: [
-          ...assets.value.map((value) {
-            return _AssetTile(asset: value);
-          }).toList()
-        ],
+      sliver: SliverList(
+        delegate: SliverChildListDelegate(
+          [
+            ...assets.value.map((value) {
+              return _AssetTile(asset: value);
+            }).toList()
+          ],
+        ),
       ),
     );
   }
@@ -364,48 +362,49 @@ class _Colors extends HookWidget {
   Widget build(BuildContext context) {
     final gridView = useState<bool>(false);
 
-    return ListView(
-      shrinkWrap: true,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 16,
-            top: 16,
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 16,
+              top: 16,
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "You can tap on color to see its details.",
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () => gridView.value = !gridView.value,
+                  icon: Icon(
+                    !gridView.value ? Icons.grid_view_rounded : Icons.view_list_rounded,
+                  ),
+                )
+              ],
+            ),
           ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  "You can tap on color to see its details.",
-                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                        fontWeight: FontWeight.bold,
+          ...colors
+                  ?.map((key, value) {
+                    return MapEntry(
+                      key,
+                      _ColorsComponent(
+                        title: key,
+                        colors: value,
+                        gridView: gridView.value,
                       ),
-                ),
-              ),
-              IconButton(
-                onPressed: () => gridView.value = !gridView.value,
-                icon: Icon(
-                  !gridView.value ? Icons.grid_view_rounded : Icons.view_list_rounded,
-                ),
-              )
-            ],
-          ),
-        ),
-        ...colors
-                ?.map((key, value) {
-                  return MapEntry(
-                    key,
-                    _ColorsComponent(
-                      title: key,
-                      colors: value,
-                      gridView: gridView.value,
-                    ),
-                  );
-                })
-                .values
-                .toList() ??
-            [],
-      ],
+                    );
+                  })
+                  .values
+                  .toList() ??
+              [],
+        ],
+      ),
     );
   }
 }
@@ -439,40 +438,29 @@ class _ColorsComponent extends StatelessWidget {
           ),
         ),
         gridView
-            ? GridView.extent(
-                maxCrossAxisExtent: 194,
-                childAspectRatio: 1,
+            ? GridView.builder(
+                padding: const EdgeInsets.only(bottom: 24),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                shrinkWrap: true,
+                itemCount: colors.length,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) => _ColorTile(
+                  color: colors.values.elementAt(index),
+                  name: colors.keys.elementAt(index),
+                  gridView: gridView,
+                ),
+              )
+            : ListView.separated(
+                itemCount: colors.length,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                children: colors
-                    .map((key, value) {
-                      return MapEntry(
-                        key,
-                        _ColorTile(
-                          color: value,
-                          name: key,
-                          gridView: gridView,
-                        ),
-                      );
-                    })
-                    .values
-                    .toList(),
-              )
-            : Column(
-                children: colors
-                    .map((key, value) {
-                      return MapEntry(
-                        key,
-                        _ColorTile(
-                          color: value,
-                          name: key,
-                          gridView: gridView,
-                        ),
-                      );
-                    })
-                    .values
-                    .expand((element) => [element, const Divider()])
-                    .toList(),
+                padding: const EdgeInsets.only(bottom: 24),
+                separatorBuilder: (context, _) => const Divider(),
+                itemBuilder: (context, index) => _ColorTile(
+                  color: colors.values.elementAt(index),
+                  name: colors.keys.elementAt(index),
+                  gridView: gridView,
+                ),
               ),
       ],
     );
@@ -497,11 +485,7 @@ class _ColorTile extends StatelessWidget {
       onPressed: () {
         showDialog(
           context: context,
-          builder: (_) => _ColorDialog(
-            color: color,
-            name: name,
-            ctx: context,
-          ),
+          builder: (_) => _ColorDialog(color: color, name: name),
         );
       },
       padding: EdgeInsets.zero,
@@ -569,22 +553,24 @@ class _Shadows extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ...shadows
-                ?.map((key, value) {
-                  return MapEntry(
-                    key,
-                    _ShadowTile(
-                      name: key,
-                      shadow: value,
-                    ),
-                  );
-                })
-                .values
-                .toList() ??
-            [],
-      ],
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        [
+          ...shadows
+                  ?.map((key, value) {
+                    return MapEntry(
+                      key,
+                      _ShadowTile(
+                        name: key,
+                        shadow: value,
+                      ),
+                    );
+                  })
+                  .values
+                  .toList() ??
+              [],
+        ],
+      ),
     );
   }
 }
@@ -596,22 +582,24 @@ class _Dimens extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ...dimens
-                ?.map((key, value) {
-                  return MapEntry(
-                    key,
-                    _DimensTile(
-                      name: key,
-                      dimen: value,
-                    ),
-                  );
-                })
-                .values
-                .toList() ??
-            [],
-      ],
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        [
+          ...dimens
+                  ?.map((key, value) {
+                    return MapEntry(
+                      key,
+                      _DimensTile(
+                        name: key,
+                        dimen: value,
+                      ),
+                    );
+                  })
+                  .values
+                  .toList() ??
+              [],
+        ],
+      ),
     );
   }
 }
@@ -623,22 +611,24 @@ class _Typography extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ...typography
-                ?.map((key, value) {
-                  return MapEntry(
-                    key,
-                    _TypographyTile(
-                      name: key,
-                      style: value,
-                    ),
-                  );
-                })
-                .values
-                .toList() ??
-            [],
-      ],
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        [
+          ...typography
+                  ?.map((key, value) {
+                    return MapEntry(
+                      key,
+                      _TypographyTile(
+                        name: key,
+                        style: value,
+                      ),
+                    );
+                  })
+                  .values
+                  .toList() ??
+              [],
+        ],
+      ),
     );
   }
 }
@@ -792,13 +782,11 @@ class _ColorDialog extends StatelessWidget {
   const _ColorDialog({
     required this.color,
     required this.name,
-    required this.ctx,
     Key? key,
   }) : super(key: key);
 
   final Color color;
   final String name;
-  final BuildContext ctx;
 
   @override
   Widget build(BuildContext context) {
@@ -812,26 +800,33 @@ class _ColorDialog extends StatelessWidget {
             ),
           );
 
-          ScaffoldMessenger.of(ctx).clearMaterialBanners();
+          if (_scaffoldKey.currentContext == null) return;
 
-          ScaffoldMessenger.of(ctx).showMaterialBanner(
-            MaterialBanner(
-              actions: [
-                IconButton(
-                  onPressed: () => ScaffoldMessenger.of(ctx).clearMaterialBanners(),
-                  icon: const Icon(
-                    Icons.close,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-              content: Text(
-                "Color $name hex was coppied!",
-                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+          ScaffoldMessenger.of(_scaffoldKey.currentContext!).clearSnackBars();
+
+          ScaffoldMessenger.of(_scaffoldKey.currentContext!).showSnackBar(
+            SnackBar(
+              backgroundColor: Theme.of(context).primaryColor,
+              padding: EdgeInsets.zero,
+              content: MaterialBanner(
+                elevation: 0,
+                actions: [
+                  IconButton(
+                    onPressed: () => ScaffoldMessenger.of(_scaffoldKey.currentContext!).clearSnackBars(),
+                    icon: const Icon(
+                      Icons.close,
                       color: Colors.white,
                     ),
+                  ),
+                ],
+                content: Text(
+                  "Color $name hex was coppied!",
+                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        color: Colors.white,
+                      ),
+                ),
+                backgroundColor: Theme.of(context).primaryColor,
               ),
-              backgroundColor: Theme.of(context).primaryColor,
             ),
           );
         },
@@ -869,6 +864,80 @@ class _ColorDialog extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _Widgets extends HookWidget {
+  const _Widgets(this.widgets, {Key? key}) : super(key: key);
+
+  final List<Widget>? widgets;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildListDelegate(
+        [
+          ...widgets
+                  ?.map((value) {
+                    return _WidgetTile(widget: value);
+                  })
+                  .toList()
+                  .expand(
+                    (element) => [
+                      element,
+                      const Divider(height: 0),
+                    ],
+                  ) ??
+              [],
+        ],
+      ),
+    );
+  }
+}
+
+class _WidgetTile extends StatelessWidget {
+  const _WidgetTile({
+    required this.widget,
+    Key? key,
+  }) : super(key: key);
+
+  final Widget widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      collapsedIconColor: Theme.of(context).primaryColor,
+      iconColor: Theme.of(context).primaryColor,
+      childrenPadding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 8,
+      ),
+      title: Text(
+        widget.runtimeType.toString(),
+        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+      ),
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => WidgetPreview(widget),
+              ),
+            );
+          },
+          child: AbsorbPointer(
+            absorbing: true,
+            child: Flexible(
+              child: widget,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+      ],
     );
   }
 }

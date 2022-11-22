@@ -8,13 +8,12 @@
 .buildlog/
 .history
 .svn/
-migrate_working_dir/
 
 # IntelliJ related
 *.iml
 *.ipr
 *.iws
-.idea/
+.idea/*
 
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
@@ -22,9 +21,56 @@ migrate_working_dir/
 #.vscode/
 
 # Flutter/Dart/Pub related
-# Libraries should not include pubspec.lock, per https://dart.dev/guides/libraries/private-files#pubspeclock.
-/pubspec.lock
 **/doc/api/
+**/ios/Flutter/.last_build_id
 .dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
 .packages
-build/
+.pub-cache/
+.pub/
+/build/
+key.jks
+key.properties
+service_account_key.json
+android_keys.zip
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+/android/settings_aar.gradle
+/android/.idea
+.gradle
+
+# iOS
+ios/build/
+*.ipa
+
+# Android
+**/key.properties
+*.abb
+*.apk
+
+# Generated
+**.g.dart
+**.gr.dart
+**.freezed.dart
+**.config.dart
+**.mocks.dart
+**.ast.gql.dart
+
+### FVM related ###
+.fvm/flutter_sdk
+
+# Idea configurations exception
+!.idea/runConfigurations/
