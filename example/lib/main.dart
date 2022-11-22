@@ -20,6 +20,33 @@ class App extends StatelessWidget {
           typography: AppTypography.allStyles,
           dimens: AppDimens.allDimens,
           shadows: AppShadows.allShadows,
+          widgets: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Flexible(
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.yellow,
+                  ),
+                ),
+                Flexible(
+                  child: Container(
+                    width: 300,
+                    height: 150,
+                    color: Colors.red,
+                  ),
+                ),
+              ],
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("Siema"),
+            ),
+          ],
+          assetsDir: 'assets',
         ),
       ),
     );
