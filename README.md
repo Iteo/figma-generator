@@ -14,10 +14,10 @@
 
 ### Example styles in figma
 
-![Figma Colors](screenshots/colors-one.png)
-![Figma Colors Two](screenshots/colors-two.png)
-![Figma Typography](screenshots/typography.png)
-![Figma Shadows](screenshots/shadows.png)
+![Figma Colors](https://github.com/Iteo/figma-generator/blob/main/screenshots/colors-one.png?raw=true)
+![Figma Colors Two](https://github.com/Iteo/figma-generator/blob/main/screenshots/colors-two.png?raw=true)
+![Figma Typography](https://github.com/Iteo/figma-generator/blob/main/screenshots/typography.png?raw=true)
+![Figma Shadows](https://github.com/Iteo/figma-generator/blob/main/screenshots/shadows.png?raw=true)
 
 Styles in dart class when will be exported
 
@@ -573,8 +573,8 @@ Scaffold(
 
 |                            |                            |                            |
 | :------------------------- | :------------------------- | :------------------------- |
-| ![Design System Drawer](screenshots/design_system/drawer.PNG) | ![Design System Colors](screenshots/design_system/colors.PNG) | ![Design System Typography](screenshots/design_system/typography.PNG) | ![Design System Shadows](screenshots/design_system/shadows.PNG)
-| ![Design System Dimens](screenshots/design_system/dimens.PNG) | ![Design System Assets](screenshots/design_system/assets.PNG) | ![Design System Widgets](screenshots/design_system/widgets.PNG)
+| ![Design System Drawer](https://github.com/Iteo/figma-generator/blob/main/screenshots/design_system/drawer.PNG?raw=true) | ![Design System Colors](https://github.com/Iteo/figma-generator/blob/main/screenshots/design_system/colors.PNG?raw=true) | ![Design System Typography](https://github.com/Iteo/figma-generator/blob/main/screenshots/design_system/typography.PNG?raw=true) | ![Design System Shadows](https://github.com/Iteo/figma-generator/blob/main/screenshots/design_system/shadows.PNG?raw=true)
+| ![Design System Dimens](screenshots/design_system/dimens.PNG?raw=true) | ![Design System Assets](https://github.com/Iteo/figma-generator/blob/main/screenshots/design_system/assets.PNG?raw=true) | ![Design System Widgets](https://github.com/Iteo/figma-generator/blob/main/screenshots/design_system/widgets.PNG?raw=true)
 
 </br>
 
@@ -591,7 +591,7 @@ To display the `Widget Preview` screen just click on the widget you are interest
 
 </br>
 
-![Design System Widget Preview](screenshots/design_system/widget_preview.gif)
+![Design System Widget Preview](https://github.com/Iteo/figma-generator/blob/main/screenshots/design_system/widget_preview.gif?raw=true)
 
 ## Badge
 
