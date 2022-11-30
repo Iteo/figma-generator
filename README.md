@@ -1,15 +1,11 @@
-
-# Figma Generator
-
 ## Generate style classes from figma
 
-## Example
+### Example styles in figma
 
-Styles in Figma
-
-![Figma Colors Two](screenshots/colors-two.png)
 ![Figma Colors](screenshots/colors-one.png)
+![Figma Colors Two](screenshots/colors-two.png)
 ![Figma Typography](screenshots/typography.png)
+![Figma Shadows](screenshots/shadows.png)
 
 Styles in dart class when will be exported
 
@@ -368,6 +364,40 @@ class AppDimens {
 }
 ```
 
+### Shadows
+```dart
+class AppShadows {
+  const AppShadows._();
+
+  static Map<String, BoxShadow> get allShadows => {
+        "divider": divider,
+        "shadowFromDown": shadowFromDown,
+        "shadowFromUp": shadowFromUp,
+      };
+
+  static const BoxShadow divider = BoxShadow(
+    blurRadius: 1,
+    spreadRadius: 0,
+    color: Color(0x0D000000),
+    offset: Offset(0, 1),
+  );
+
+  static const BoxShadow shadowFromDown = BoxShadow(
+    blurRadius: 16,
+    spreadRadius: 0,
+    color: Color(0x1A000000),
+    offset: Offset(0, 8),
+  );
+
+  static const BoxShadow shadowFromUp = BoxShadow(
+    blurRadius: 16,
+    spreadRadius: 0,
+    color: Color(0x05000000),
+    offset: Offset(0, -8),
+  );
+}
+```
+
 ## How to do it
 
 ### 1. Prepare colors and font styles accordingly
@@ -412,6 +442,52 @@ if you already have an exported styles file from figma, make sure it's in the fo
 | `-h` | `help` | Showing all parameters |
 | `-f` | `config` | Config file (defaults is "figma_generator.yaml") |
 
+### Example config
+
+```yaml
+figma_generator:
+  #Default: assets/styles.json
+  source_file_path: assets/styles.json
+
+  #Default: lib/presentation/style
+  output_dir: lib/presentation/style
+
+  #Default: AppColors
+  colors_class_name: AppColors
+
+  #Default: AppTypography
+  typography_class_name: AppTypography
+
+  #Default: AppShadows
+  shadows_class_name: AppShadows
+
+  #Default: AppDimens
+  dimens_class_name: AppDimens
+
+  #Default for all is true
+  generate_colors: true
+  generate_typography: true
+  generate_shadows: true
+  generate_dimens: true
+
+  #Default is empty
+  dimens:
+    zero: 0
+    one: 1
+    xxs: 2
+    xs: 4
+    s: 8
+    xm: 12
+    m: 16
+    ml: 20
+    l: 24
+    xl: 32
+    xxl: 40
+    xxxl: 48
+    c: 56
+    xxc: 72
+    xxxc: 80
+```
 </br>
 
 ### 5. There it is, you can already use your styles!
@@ -419,10 +495,88 @@ if you already have an exported styles file from figma, make sure it's in the fo
 ```dart
   Container(
     width: AppDimens.xxxhuge,
-    color: AppColors.myCoolColor,
+    decoration: BoxDecoration(
+      color: AppColors.myCoolColor,
+      boxShadow: [
+        AppShadows.myShadowFromDown
+      ],
+    ),
     child: Text(
       "YEAH!",
       style: AppTypography.myFontStyle
     ),
   ),
 ```
+</br>
+
+# Design System
+
+## How use it
+</br>
+
+### 1. Design system button
+
+To open the design system screen, we need to use the widget `DesignSystemFloatingButton` we use it as a floatingActionButton argument, below is an example
+
+```dart
+Scaffold(
+  floatingActionButton: DesignSystemFloatingButton(),
+),
+```
+
+### 2. Parameters
+
+We add the parameters that we want the design system to display to us
+```dart
+Scaffold(
+  floatingActionButton: DesignSystemFloatingButton(
+    darkColors: DarkAppColors().allColors,
+    lightColors: LightAppColors().allColors,
+    typography: AppTypography.allStyles,
+    dimens: AppDimens.allDimens,
+    shadows: AppShadows.allShadows,
+    widgets: [
+      ElevatedButton(
+        onPressed: () {},
+        child: Text("Click Me!"),
+      ),
+    ],
+    assetsDir: 'assets',
+  ),
+),
+```
+
+| Parameters     | Type                | Description                 |
+| :------- | :------------------------- | :------------------------- |
+| `darkColors` | `Map<String, Map<String, Color>>?` | Show dark colors
+| `lightColor` | `Map<String, Map<String, Color>>?` | Show light colors
+| `typography` | `Map<String, TextStyle>?` | Show typography
+| `dimens` | `Map<String, double>?` | Show dimens
+| `shadows` | `Map<String, BoxShadow>?` | Show shadows
+| `widgets` | `List<Widget>?` | Show widgets
+| `assetsDir` | `String?` | Show assets from dir (defaults is `assets`)
+</br>
+
+### How it`s look
+
+|                            |                            |                            |
+| :------------------------- | :------------------------- | :------------------------- |
+| ![Design System Drawer](screenshots/design_system/drawer.PNG) | ![Design System Colors](screenshots/design_system/colors.PNG) | ![Design System Typography](screenshots/design_system/typography.PNG) | ![Design System Shadows](screenshots/design_system/shadows.PNG)
+| ![Design System Dimens](screenshots/design_system/dimens.PNG) | ![Design System Assets](screenshots/design_system/assets.PNG) | ![Design System Widgets](screenshots/design_system/widgets.PNG)
+
+</br>
+
+# Widget Preview
+To display the `Widget Preview` screen just click on the widget you are interested in, additional functionality described below.
+* To change the height of the widget, hold your finger on the widget and move it up or down.
+* To change the width of the widget, hold your finger on the widget and move it left or right.
+* You can also click on the current height or width to set the value manually.
+* To center the widget click on `center: false`.
+* To disable the centering of the widget we click on the caption `center: true`.
+* To restore the widget to its original size we click on the button in the upper right corner.
+* The orange area around the widget indicates how much space it actually takes up.
+
+
+</br>
+
+![Design System Widget Preview](screenshots/design_system/widget_preview.gif)

@@ -1,6 +1,6 @@
 name: figma_generator
-description: Styles generator from figma
-version: 0.0.1
+description: Styles generator from figma & Design System
+version: 1.0.0
 homepage: none
 publish_to: none
 
