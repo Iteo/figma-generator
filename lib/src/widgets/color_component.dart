@@ -34,7 +34,8 @@ class ColorsComponent extends StatelessWidget {
         gridView
             ? GridView.builder(
                 padding: const EdgeInsets.only(bottom: 24),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
                 shrinkWrap: true,
                 itemCount: colors.length,
                 physics: const NeverScrollableScrollPhysics(),

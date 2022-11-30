@@ -80,7 +80,11 @@ class ColorTile extends StatelessWidget {
               ),
               title: Text(name),
               subtitle: Text(
-                color.toString().replaceAll("Color(0x", "#").replaceAll(")", "").toUpperCase(),
+                color
+                    .toString()
+                    .replaceAll("Color(0x", "#")
+                    .replaceAll(")", "")
+                    .toUpperCase(),
               ),
             ),
     );

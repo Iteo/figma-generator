@@ -74,7 +74,8 @@ ${await _generateTypographyBody()}
 
     buffer.writeln('\nstatic Map<String, TextStyle> get allStyles => {');
 
-    typography.sort((a, b) => a.name?.compareTo(b.name ?? '') ?? typography.length);
+    typography
+        .sort((a, b) => a.name?.compareTo(b.name ?? '') ?? typography.length);
 
     for (final typo in typography) {
       buffer.writeln('"${typo.description}": ${typo.name},');
