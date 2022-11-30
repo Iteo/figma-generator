@@ -43,7 +43,7 @@ class App extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text("Siema"),
+              child: Text("Click Me!"),
             ),
           ],
           assetsDir: 'assets',
