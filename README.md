@@ -1,3 +1,15 @@
+<div align="center">
+<h1>Figma Generator & Design System</h1>
+
+
+[![License: MIT][license_badge]][license_badge_link]
+[![style: Figma Generator][badge]][badge_link]
+[![pub package](https://img.shields.io/pub/v/figma_generator)](https://pub.dartlang.org/packages/figma_generator)
+
+</div>
+
+---
+
 ## Generate style classes from figma
 
 ### Example styles in figma
@@ -580,3 +592,16 @@ To display the `Widget Preview` screen just click on the widget you are interest
 </br>
 
 ![Design System Widget Preview](screenshots/design_system/widget_preview.gif)
+
+## Badge
+
+Support the project using a badge in your repository
+
+[![style:figma_generator](https://img.shields.io/badge/style-Figma_Generator-orange)](https://pub.dev/packages/figma_generator)
+
+
+[iteo]: https://iteo.com
+[badge]: https://img.shields.io/badge/style-Figma_Generator-orange
+[badge_link]: https://pub.dev/packages/figma_generator
+[license_badge]: https://img.shields.io/badge/licence-MIT-green
+[license_badge_link]: https://github.com/Iteo/figma-generator/blob/master/LICENSE

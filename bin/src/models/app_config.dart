@@ -67,11 +67,13 @@ class AppConfig {
   });
 
   String get outputFileColors => getFileNameFromClassName(colorsClassName);
-  String get outputFileTypography => getFileNameFromClassName(typographyClassName);
+  String get outputFileTypography =>
+      getFileNameFromClassName(typographyClassName);
   String get outputFileShadows => getFileNameFromClassName(shadowsClassName);
   String get outputFileDimens => getFileNameFromClassName(dimensClassName);
 
-  factory AppConfig.fromJson(Map<String, dynamic> json) => _$AppConfigFromJson(json);
+  factory AppConfig.fromJson(Map<String, dynamic> json) =>
+      _$AppConfigFromJson(json);
 
   static AppConfig loadConfigFromPath(String filePath) {
     final config = File(filePath);
@@ -94,7 +96,8 @@ class DimensConverter {
       var appDimens = <AppDimen>[];
 
       for (final map in json.entries) {
-        appDimens.add(AppDimen(value: double.parse(map.value.toString()), name: map.key));
+        appDimens.add(
+            AppDimen(value: double.parse(map.value.toString()), name: map.key));
       }
 
       return appDimens;

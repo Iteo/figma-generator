@@ -21,7 +21,11 @@ class ColorDialog extends StatelessWidget {
         onTap: () {
           Clipboard.setData(
             ClipboardData(
-              text: color.toString().replaceAll("Color(0x", "#").replaceAll(")", "").toUpperCase(),
+              text: color
+                  .toString()
+                  .replaceAll("Color(0x", "#")
+                  .replaceAll(")", "")
+                  .toUpperCase(),
             ),
           );
 
@@ -37,7 +41,9 @@ class ColorDialog extends StatelessWidget {
                 elevation: 0,
                 actions: [
                   IconButton(
-                    onPressed: () => ScaffoldMessenger.of(scaffoldKey.currentContext!).clearSnackBars(),
+                    onPressed: () =>
+                        ScaffoldMessenger.of(scaffoldKey.currentContext!)
+                            .clearSnackBars(),
                     icon: const Icon(
                       Icons.close,
                       color: Colors.white,
@@ -82,7 +88,11 @@ class ColorDialog extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                color.toString().replaceAll("Color(0x", "#").replaceAll(")", "").toUpperCase(),
+                color
+                    .toString()
+                    .replaceAll("Color(0x", "#")
+                    .replaceAll(")", "")
+                    .toUpperCase(),
               ),
               const SizedBox(height: 16),
             ],

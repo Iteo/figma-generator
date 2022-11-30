@@ -33,7 +33,9 @@ class ColorsView extends HookWidget {
                 IconButton(
                   onPressed: () => gridView.value = !gridView.value,
                   icon: Icon(
-                    !gridView.value ? Icons.grid_view_rounded : Icons.view_list_rounded,
+                    !gridView.value
+                        ? Icons.grid_view_rounded
+                        : Icons.view_list_rounded,
                   ),
                 )
               ],

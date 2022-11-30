@@ -69,10 +69,14 @@ Future<void> _handleStyleFiles(GenerateOptions options) async {
 
   final sourceFile = File(path.join(current.path, appConfig.sourceFilePath));
 
-  final outputFileColors = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileColors));
-  final outputFileTypography = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileTypography));
-  final outputFileShadows = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileShadows));
-  final outputFileDimens = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileDimens));
+  final outputFileColors = File(
+      path.join(current.path, appConfig.outputDir, appConfig.outputFileColors));
+  final outputFileTypography = File(path.join(
+      current.path, appConfig.outputDir, appConfig.outputFileTypography));
+  final outputFileShadows = File(path.join(
+      current.path, appConfig.outputDir, appConfig.outputFileShadows));
+  final outputFileDimens = File(
+      path.join(current.path, appConfig.outputDir, appConfig.outputFileDimens));
 
   if (!await sourceFile.exists()) {
     printError('Source file does not exist (${sourceFile.toString()})');

@@ -9,7 +9,8 @@ import 'package:flutter_svg/svg.dart';
 class UtilsApp {
   static Future<String> getFileSize(String filepath, int decimals) async {
     try {
-      int bytes = (await rootBundle.load(filepath.replaceAll("%20", " "))).lengthInBytes;
+      int bytes = (await rootBundle.load(filepath.replaceAll("%20", " ")))
+          .lengthInBytes;
       if (bytes <= 0) return "0 B";
       const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
       var i = (log(bytes) / log(1024)).floor();
@@ -24,14 +25,17 @@ class UtilsApp {
 
     if (ext == 'svg') return AssetModelType.svg;
 
-    if (ext == 'jpg' || ext == 'png' || ext == 'gif') return AssetModelType.image;
+    if (ext == 'jpg' || ext == 'png' || ext == 'gif')
+      return AssetModelType.image;
 
-    if (ext == 'mp3' || ext == 'wav' || ext == 'aac') return AssetModelType.audio;
+    if (ext == 'mp3' || ext == 'wav' || ext == 'aac')
+      return AssetModelType.audio;
 
     return AssetModelType.other;
   }
 
-  static Future<Widget> getAssetWidget(AssetModel asset, BuildContext context) async {
+  static Future<Widget> getAssetWidget(
+      AssetModel asset, BuildContext context) async {
     switch (asset.type) {
       case AssetModelType.image:
         return Image.asset(asset.path);
@@ -40,19 +44,23 @@ class UtilsApp {
       case AssetModelType.audio:
         return const Text('Unable to preview file');
       case AssetModelType.json:
-        String data = await DefaultAssetBundle.of(context).loadString(asset.path);
+        String data =
+            await DefaultAssetBundle.of(context).loadString(asset.path);
         return Text(data);
       case AssetModelType.other:
         return const Text('Unable to preview file');
     }
   }
 
-  static Future<List<AssetModel>> getAssets(BuildContext context, {String? assetsDir}) async {
-    final assetManifest = await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
+  static Future<List<AssetModel>> getAssets(BuildContext context,
+      {String? assetsDir}) async {
+    final assetManifest =
+        await DefaultAssetBundle.of(context).loadString('AssetManifest.json');
     final Map<String, dynamic> manifestMap = json.decode(assetManifest);
     final filtered = manifestMap.keys
         .where(
-          (path) => path.startsWith(assetsDir != null ? '$assetsDir/' : 'assets/'),
+          (path) =>
+              path.startsWith(assetsDir != null ? '$assetsDir/' : 'assets/'),
         )
         .toList();
 

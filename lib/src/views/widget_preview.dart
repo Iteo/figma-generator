@@ -42,7 +42,8 @@ class WidgetPreview extends HookWidget {
           ),
         );
 
-    Widget _infoSize(String text, ValueNotifier<double> value, Color color) => GestureDetector(
+    Widget _infoSize(String text, ValueNotifier<double> value, Color color) =>
+        GestureDetector(
           onTap: () {
             showDialog(
               context: context,
@@ -56,9 +57,10 @@ class WidgetPreview extends HookWidget {
                     autofocus: true,
                     cursorColor: color,
                     decoration: InputDecoration(
-                      floatingLabelStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
-                            color: color,
-                          ),
+                      floatingLabelStyle:
+                          Theme.of(context).textTheme.bodyText1?.copyWith(
+                                color: color,
+                              ),
                       labelText: text,
                       focusColor: color,
                       border: const OutlineInputBorder(),
@@ -68,8 +70,10 @@ class WidgetPreview extends HookWidget {
                         ),
                       ),
                     ),
-                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                    onChanged: (s) => value.value = double.parse(s.replaceAll(",", ".")),
+                    keyboardType:
+                        const TextInputType.numberWithOptions(decimal: true),
+                    onChanged: (s) =>
+                        value.value = double.parse(s.replaceAll(",", ".")),
                   ),
                 ),
               ),
@@ -156,7 +160,8 @@ class WidgetPreview extends HookWidget {
               shrinkWrap: true,
               controller: ScrollController(keepScrollOffset: false),
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: MediaQuery.of(context).size.width.toInt() * (MediaQuery.of(context).size.height * 0.1).toInt(),
+              itemCount: MediaQuery.of(context).size.width.toInt() *
+                  (MediaQuery.of(context).size.height * 0.1).toInt(),
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 24,
                 childAspectRatio: 1,
