@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:figma_generator/figma_generator.dart';
+import 'package:figma_generator/src/models/asset_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_svg/svg.dart';

@@ -1,11 +1,6 @@
-
-# Figma Generator
-
 ## Generate style classes from figma
-</br>
 
-## Example
-Styles in Figma
+### Example styles in figma
 
 ![Figma Colors](screenshots/colors-one.png)
 ![Figma Colors Two](screenshots/colors-two.png)
@@ -561,17 +556,14 @@ Scaffold(
 | `widgets` | `List<Widget>?` | Show widgets
 | `assetsDir` | `String?` | Show assets from dir (defaults is `assets`)
 </br>
-### How it`s look
-</br>
 
-![Design System Drawer](screenshots/design_system/drawer.png)
-![Design System Colors](screenshots/design_system/colors.png)
-![Design System Typography](screenshots/design_system/typography.png)
-![Design System Shadows](screenshots/design_system/shadows.png)
-![Design System Dimens](screenshots/design_system/dimens.png)
-![Design System Assets](screenshots/design_system/assets.png)
-![Design System Widgets](screenshots/design_system/widgets.png)
-</br>
+### How it`s look
+
+|                            |                            |                            |
+| :------------------------- | :------------------------- | :------------------------- |
+| ![Design System Drawer](screenshots/design_system/drawer.PNG) | ![Design System Colors](screenshots/design_system/colors.PNG) | ![Design System Typography](screenshots/design_system/typography.PNG) | ![Design System Shadows](screenshots/design_system/shadows.PNG)
+| ![Design System Dimens](screenshots/design_system/dimens.PNG) | ![Design System Assets](screenshots/design_system/assets.PNG) | ![Design System Widgets](screenshots/design_system/widgets.PNG)
+
 </br>
 
 # Widget Preview
