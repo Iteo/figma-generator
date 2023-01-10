@@ -79,8 +79,7 @@ double computeFontSize(int? fontSize, int? lineHeight) {
 }
 
 String getFileNameFromClassName(String input) =>
-    '${input.split(_beforeNonLeadingCapitalLetter).join('_')}.dart'
-        .toLowerCase();
+    '${input.split(_beforeNonLeadingCapitalLetter).join('_')}.dart'.toLowerCase();
 
 void printInfo(String info) {
   print('\u001b[32mFG: $info\u001b[0m');

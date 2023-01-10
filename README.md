@@ -446,7 +446,7 @@ Okey, now you can save changes and go to next step!
 if you already have an exported styles file from figma, make sure it's in the folder `assets/styles` and use this command to generate the classes
 
 ```dart
-  flutter pub run figma_generator:main
+  flutter pub run flutter_figma_generator:main
 ```
 
 | Args | Name     | Description                |

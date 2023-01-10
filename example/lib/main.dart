@@ -2,8 +2,8 @@ import 'package:example/presentation/style/app_colors.dart';
 import 'package:example/presentation/style/app_dimens.dart';
 import 'package:example/presentation/style/app_shadows.dart';
 import 'package:example/presentation/style/app_typography.dart';
-import 'package:figma_generator/figma_generator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_generator/flutter_figma_generator.dart';
 
 void main() => runApp(App());
 

@@ -82,7 +82,7 @@ class AppConfig {
     final yamlMap = loadYaml(configContent);
     final jsonString = json.encode(yamlMap);
 
-    return AppConfig.fromJson(json.decode(jsonString)['figma_generator']);
+    return AppConfig.fromJson(json.decode(jsonString)['flutter_figma_generator']);
   }
 }
 

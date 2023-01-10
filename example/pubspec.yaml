@@ -10,7 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  figma_generator: 1.0.3
+  flutter_figma_generator:
+    path: ../
   cupertino_icons: ^1.0.5
 
 dev_dependencies:
