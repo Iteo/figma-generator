@@ -1,5 +1,5 @@
-import 'package:figma_generator/src/widgets/color_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_generator/src/widgets/color_tile.dart';
 
 class ColorsComponent extends StatelessWidget {
   const ColorsComponent({
@@ -34,8 +34,7 @@ class ColorsComponent extends StatelessWidget {
         gridView
             ? GridView.builder(
                 padding: const EdgeInsets.only(bottom: 24),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 shrinkWrap: true,
                 itemCount: colors.length,
                 physics: const NeverScrollableScrollPhysics(),

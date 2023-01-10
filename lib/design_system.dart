@@ -1,11 +1,11 @@
-import 'package:figma_generator/src/views/assets_view.dart';
-import 'package:figma_generator/src/views/colors_view.dart';
-import 'package:figma_generator/src/views/dimens_view.dart';
-import 'package:figma_generator/src/views/shadows_view.dart';
-import 'package:figma_generator/src/views/typography_view.dart';
-import 'package:figma_generator/src/views/widgets_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_figma_generator/src/views/assets_view.dart';
+import 'package:flutter_figma_generator/src/views/colors_view.dart';
+import 'package:flutter_figma_generator/src/views/dimens_view.dart';
+import 'package:flutter_figma_generator/src/views/shadows_view.dart';
+import 'package:flutter_figma_generator/src/views/typography_view.dart';
+import 'package:flutter_figma_generator/src/views/widgets_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -114,8 +114,7 @@ class _DesignSystemPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final currentPage = useState<int>(0);
-    final darkMode = useState<bool>(
-        MediaQuery.of(context).platformBrightness == Brightness.dark);
+    final darkMode = useState<bool>(MediaQuery.of(context).platformBrightness == Brightness.dark);
 
     return MaterialApp(
       theme: darkMode.value
@@ -156,9 +155,7 @@ class _DesignSystemPage extends HookWidget {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              systemOverlayStyle: darkMode.value
-                  ? SystemUiOverlayStyle.light
-                  : SystemUiOverlayStyle.dark,
+              systemOverlayStyle: darkMode.value ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
               title: Text(_pagesName[currentPage.value]),
               floating: true,
               pinned: true,
@@ -175,8 +172,7 @@ class _DesignSystemPage extends HookWidget {
               ],
             ),
             [
-              ColorsView(
-                  darkMode.value ? darkColors : lightColors, _scaffoldKey),
+              ColorsView(darkMode.value ? darkColors : lightColors, _scaffoldKey),
               TypographyView(typography),
               ShadowsView(shadows),
               DimensView(dimens),

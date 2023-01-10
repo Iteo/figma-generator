@@ -20,7 +20,6 @@ ${await _classGenerate()}
 
   String _importsGenerate() {
     return '''
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 ''';
   }
@@ -125,9 +124,7 @@ class Dark$className extends $className {
     light.sort((a, b) => a.name!.compareTo(b.name!));
     dark.sort((a, b) => a.name!.compareTo(b.name!));
 
-    return (isDark ? dark : light)
-        .map((e) => '${e.name}: const ${e.color}')
-        .join(',');
+    return (isDark ? dark : light).map((e) => '${e.name}: const ${e.color}').join(',');
   }
 
   String _generateColorMaps(List<AppColor> colors) {
@@ -178,8 +175,7 @@ class Dark$className extends $className {
     return colorList;
   }
 
-  List<AppColor> _getAppColor(Map<String, dynamic> data,
-      {String? name, bool? isDark}) {
+  List<AppColor> _getAppColor(Map<String, dynamic> data, {String? name, bool? isDark}) {
     final colorList = <AppColor>[];
 
     data.map((key, value) {

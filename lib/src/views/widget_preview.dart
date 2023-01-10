@@ -1,3 +1,5 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -28,7 +30,7 @@ class WidgetPreview extends HookWidget {
       });
     }, [widget]);
 
-    Widget _info(String text, Color color) => Container(
+    Widget info(String text, Color color) => Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
@@ -42,8 +44,7 @@ class WidgetPreview extends HookWidget {
           ),
         );
 
-    Widget _infoSize(String text, ValueNotifier<double> value, Color color) =>
-        GestureDetector(
+    Widget infoSize(String text, ValueNotifier<double> value, Color color) => GestureDetector(
           onTap: () {
             showDialog(
               context: context,
@@ -57,10 +58,9 @@ class WidgetPreview extends HookWidget {
                     autofocus: true,
                     cursorColor: color,
                     decoration: InputDecoration(
-                      floatingLabelStyle:
-                          Theme.of(context).textTheme.bodyText1?.copyWith(
-                                color: color,
-                              ),
+                      floatingLabelStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
+                            color: color,
+                          ),
                       labelText: text,
                       focusColor: color,
                       border: const OutlineInputBorder(),
@@ -70,10 +70,8 @@ class WidgetPreview extends HookWidget {
                         ),
                       ),
                     ),
-                    keyboardType:
-                        const TextInputType.numberWithOptions(decimal: true),
-                    onChanged: (s) =>
-                        value.value = double.parse(s.replaceAll(",", ".")),
+                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                    onChanged: (s) => value.value = double.parse(s.replaceAll(",", ".")),
                   ),
                 ),
               ),
@@ -117,13 +115,13 @@ class WidgetPreview extends HookWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                _infoSize(
+                infoSize(
                   "width",
                   width,
                   Colors.blue,
                 ),
                 const SizedBox(width: 8),
-                _infoSize(
+                infoSize(
                   "height",
                   height,
                   Colors.red,
@@ -133,7 +131,7 @@ class WidgetPreview extends HookWidget {
                   onTap: () {
                     center.value = !center.value;
                   },
-                  child: _info(
+                  child: info(
                     "center: ${center.value}",
                     Colors.orange,
                   ),
@@ -160,8 +158,7 @@ class WidgetPreview extends HookWidget {
               shrinkWrap: true,
               controller: ScrollController(keepScrollOffset: false),
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: MediaQuery.of(context).size.width.toInt() *
-                  (MediaQuery.of(context).size.height * 0.1).toInt(),
+              itemCount: MediaQuery.of(context).size.width.toInt() * (MediaQuery.of(context).size.height * 0.1).toInt(),
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 24,
                 childAspectRatio: 1,

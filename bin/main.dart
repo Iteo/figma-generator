@@ -14,7 +14,7 @@ import 'src/templates/class_shadow_template.dart';
 import 'src/templates/class_typography_template.dart';
 import 'src/utils/utils.dart';
 
-const String defaultConfigFile = "figma_generator.yaml";
+const String defaultConfigFile = "flutter_figma_generator.yaml";
 
 Future<void> main(List<String> args) async {
   if (_isHelpCommand(args)) {
@@ -50,7 +50,7 @@ ArgParser _generateArgParser(GenerateOptions? generateOptions) {
   parser.addOption(
     'config',
     abbr: 'f',
-    defaultsTo: 'figma_generator.yaml',
+    defaultsTo: 'flutter_figma_generator.yaml',
     callback: (String? x) => generateOptions!.config = x,
     help: 'Config file path',
   );
@@ -69,14 +69,10 @@ Future<void> _handleStyleFiles(GenerateOptions options) async {
 
   final sourceFile = File(path.join(current.path, appConfig.sourceFilePath));
 
-  final outputFileColors = File(
-      path.join(current.path, appConfig.outputDir, appConfig.outputFileColors));
-  final outputFileTypography = File(path.join(
-      current.path, appConfig.outputDir, appConfig.outputFileTypography));
-  final outputFileShadows = File(path.join(
-      current.path, appConfig.outputDir, appConfig.outputFileShadows));
-  final outputFileDimens = File(
-      path.join(current.path, appConfig.outputDir, appConfig.outputFileDimens));
+  final outputFileColors = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileColors));
+  final outputFileTypography = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileTypography));
+  final outputFileShadows = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileShadows));
+  final outputFileDimens = File(path.join(current.path, appConfig.outputDir, appConfig.outputFileDimens));
 
   if (!await sourceFile.exists()) {
     printError('Source file does not exist (${sourceFile.toString()})');

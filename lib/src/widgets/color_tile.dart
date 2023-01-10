@@ -1,6 +1,6 @@
-import 'package:figma_generator/src/widgets/color_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_generator/src/widgets/color_dialog.dart';
 
 class ColorTile extends StatelessWidget {
   const ColorTile({
@@ -80,11 +80,7 @@ class ColorTile extends StatelessWidget {
               ),
               title: Text(name),
               subtitle: Text(
-                color
-                    .toString()
-                    .replaceAll("Color(0x", "#")
-                    .replaceAll(")", "")
-                    .toUpperCase(),
+                color.toString().replaceAll("Color(0x", "#").replaceAll(")", "").toUpperCase(),
               ),
             ),
     );

@@ -5,8 +5,7 @@ part 'app_shadow.g.dart';
 
 @JsonSerializable()
 class AppShadow {
-  factory AppShadow.fromJson(Map<String, dynamic> json) =>
-      _$AppShadowFromJson(json);
+  factory AppShadow.fromJson(Map<String, dynamic> json) => _$AppShadowFromJson(json);
 
   AppShadow({
     this.name,
