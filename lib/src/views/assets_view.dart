@@ -1,8 +1,10 @@
-import 'package:figma_generator/src/models/asset_model.dart';
-import 'package:figma_generator/src/utils/utils.dart';
-import 'package:figma_generator/src/widgets/asset_tile.dart';
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_figma_generator/src/models/asset_model.dart';
+import 'package:flutter_figma_generator/src/utils/utils.dart';
+import 'package:flutter_figma_generator/src/widgets/asset_tile.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class AssetsView extends HookWidget {

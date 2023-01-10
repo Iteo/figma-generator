@@ -452,12 +452,12 @@ if you already have an exported styles file from figma, make sure it's in the fo
 | Args | Name     | Description                |
 | :-------- | :------- | :------------------------- |
 | `-h` | `help` | Showing all parameters |
-| `-f` | `config` | Config file (defaults is "figma_generator.yaml") |
+| `-f` | `config` | Config file (defaults is "flutter_figma_generator.yaml") |
 
 ### Example config
 
 ```yaml
-figma_generator:
+flutter_figma_generator:
   #Default: assets/styles.json
   source_file_path: assets/styles.json
 

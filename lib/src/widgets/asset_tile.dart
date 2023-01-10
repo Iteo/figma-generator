@@ -1,6 +1,6 @@
-import 'package:figma_generator/src/models/asset_model.dart';
-import 'package:figma_generator/src/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_generator/src/models/asset_model.dart';
+import 'package:flutter_figma_generator/src/utils/utils.dart';
 
 class AssetTile extends StatelessWidget {
   const AssetTile({
@@ -12,7 +12,7 @@ class AssetTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget _subtitle(String text, Color color) => Container(
+    Widget subtitle(String text, Color color) => Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
@@ -45,9 +45,9 @@ class AssetTile extends StatelessWidget {
           runSpacing: 8,
           spacing: 8,
           children: [
-            _subtitle(asset.type.name, Colors.orangeAccent),
-            _subtitle(asset.size, Colors.blueAccent),
-            _subtitle(asset.ext, Colors.redAccent),
+            subtitle(asset.type.name, Colors.orangeAccent),
+            subtitle(asset.size, Colors.blueAccent),
+            subtitle(asset.ext, Colors.redAccent),
           ],
         ),
       ),

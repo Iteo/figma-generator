@@ -1,5 +1,5 @@
-import 'package:figma_generator/src/widgets/color_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_generator/src/widgets/color_component.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class ColorsView extends HookWidget {
@@ -33,9 +33,7 @@ class ColorsView extends HookWidget {
                 IconButton(
                   onPressed: () => gridView.value = !gridView.value,
                   icon: Icon(
-                    !gridView.value
-                        ? Icons.grid_view_rounded
-                        : Icons.view_list_rounded,
+                    !gridView.value ? Icons.grid_view_rounded : Icons.view_list_rounded,
                   ),
                 )
               ],

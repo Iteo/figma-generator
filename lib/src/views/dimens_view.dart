@@ -1,5 +1,5 @@
-import 'package:figma_generator/src/widgets/dimens_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_generator/src/widgets/dimens_tile.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class DimensView extends HookWidget {

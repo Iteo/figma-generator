@@ -10,10 +10,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  figma_generator: ^1.0.0
+  figma_generator: 1.0.3
   cupertino_icons: ^1.0.5
 
 dev_dependencies:
+  build_runner:
   flutter_test:
     sdk: flutter
 

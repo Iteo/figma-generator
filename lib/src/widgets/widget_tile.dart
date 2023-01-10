@@ -1,5 +1,5 @@
-import 'package:figma_generator/src/views/widget_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_figma_generator/src/views/widget_preview.dart';
 
 class WidgetTile extends StatelessWidget {
   const WidgetTile({
